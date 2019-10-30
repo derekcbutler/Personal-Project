@@ -1,0 +1,1 @@
+SELECT * FROM admin WHERE admin_username = $1

@@ -1,0 +1,21 @@
+.nav-bar{
+    width: 100vw;
+    height: 10vh;
+    background-color: navy;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    margin-left: 20px;
+    text-decoration: none;
+    color:white;
+    font-weight: 500;
+    font-size: 20px;
+}
+.menu-buttons{
+    text-decoration: none;
+    color:white;
+    display: flex;
+    margin-right: 20px;
+}
