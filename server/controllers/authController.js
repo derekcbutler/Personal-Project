@@ -37,5 +37,38 @@ module.exports = {
     const user = registerUser[0];
     req.session.user = { username: user.username, id: user.id };
     return res.status(200).send(req.session.user);
+  },
+
+  getLeads: (req, res) => {
+    if (req.session.user) {
+      res.status(200).send(db.get_leads);
+    }
+    res.sendStatus(200);
+  },
+
+  newLead: (req, res) => {
+    const db = req.app.get("db");
+    const { name_first, name_last, phone, email, status, notes } = req.body;
+
+    db.new_lead([name_first, name_last, phone, email, status, notes]).then(
+      data => res.status(200).send(data)
+    );
+  },
+
+  editLead: (req, res) => {
+    const db = req.app.get("db");
+    const { name_first, name_last, phone, email, status, notes } = req.body;
+    //! this line below wont work later. find a way to access ID instead of hard coding it.
+    db.edit_lead(name_first, name_last, phone, email, status, notes, 1).then(
+      data => {
+        res.status(200).send(data);
+      }
+    );
+  },
+
+  deleteLead: (req, res) => {
+    const db = req.app.get("db");
+    const { id } = req.params;
+    db.delete_lead( id ).then(data =>{ res.status(200).send(data)})
   }
 };

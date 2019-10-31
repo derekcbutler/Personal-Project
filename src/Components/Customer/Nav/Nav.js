@@ -26,7 +26,7 @@ const Nav = (props) => {
             <Link to="/products" className="menu-buttons">
               Products
             </Link>
-            <Link className="menu-buttons">Invest</Link> //?    MAKE A LINK FOR THIS
+            {/* <Link className="menu-buttons">Invest</Link> //?    MAKE A LINK FOR THIS */}
           </nav>
         </nav>
       )}

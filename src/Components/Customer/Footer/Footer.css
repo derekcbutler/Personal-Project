@@ -1,0 +1,16 @@
+.footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: darkblue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.footer-box {
+   display: flex;
+   position: absolute;
+   margin-bottom: 0;
+
+}
