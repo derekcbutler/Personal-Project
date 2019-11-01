@@ -26,8 +26,8 @@ app.post("/api/login", adminCtrl.login);
 
 app.get("/api/leads", adminCtrl.getLeads);
 app.post("/api/leads", adminCtrl.newLead);
-app.put("/api/leads", adminCtrl.editLead);
-//! would it be "/api/leads/:id to make line 62 in authController work??"
+app.put("/api/leads/:id", adminCtrl.editLead);
+app.delete("/api/leads/:id", adminCtrl.deleteLead);
 
 const port = SERVER_PORT;
 

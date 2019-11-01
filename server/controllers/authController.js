@@ -57,9 +57,9 @@ module.exports = {
 
   editLead: (req, res) => {
     const db = req.app.get("db");
+    const { id } = req.params;
     const { name_first, name_last, phone, email, status, notes } = req.body;
-    //! this line below wont work later. find a way to access ID instead of hard coding it.
-    db.edit_lead(name_first, name_last, phone, email, status, notes, 1).then(
+    db.edit_lead([name_first, name_last, phone, email, status, notes, id]).then(
       data => {
         res.status(200).send(data);
       }
@@ -69,6 +69,6 @@ module.exports = {
   deleteLead: (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
-    db.delete_lead( id ).then(data =>{ res.status(200).send(data)})
+    db.delete_lead( +id ).then(data =>{ res.status(200).send(data)})
   }
 };
