@@ -23,6 +23,7 @@ app.use(
 
 app.post("/api/register", adminCtrl.register);
 app.post("/api/login", adminCtrl.login);
+app.delete("/api/logout", adminCtrl.logout);
 
 app.get("/api/leads", adminCtrl.getLeads);
 app.post("/api/leads", adminCtrl.newLead);

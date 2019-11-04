@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
 
 class Leads extends React.Component {
   constructor() {
@@ -16,10 +18,6 @@ class Leads extends React.Component {
 
   componentDidMount() {}
 
-  // textAppear = () => {
-  //     //? This is the function that makes the input boxes appear when the New Lead Button is pushed
-
-  // }
 
   handleInput = e => {
     this.setState({
@@ -28,8 +26,8 @@ class Leads extends React.Component {
   };
 
   toggleStatus = () => {
-      this.setState({ status : !this.state.status});
-  }
+    this.setState({ status: !this.state.status });
+  };
 
   handleNewLead = () => {
     axios
@@ -56,9 +54,12 @@ class Leads extends React.Component {
   };
 
   render() {
+    console.log(this.props.redux.user.loggedIn)
+    if(!this.props.redux.user.loggedIn ){
+      return <Redirect to='/'/>
+    }
     return (
       <div>
-          
         <div>
           <input
             placeholder="first name"
@@ -93,12 +94,14 @@ class Leads extends React.Component {
           />
           <button>Submit</button>
           {this.state.status ? (
+            <div>
               <div>Active</div>
               <div>Inactive</div>
               <div>Not Interested</div>
               <div>Pending</div>
-
-          ) : null }//! FINISH HERE
+            </div>
+           ) : null}
+          //! FINISH HERE
         </div>
         <nav>
           <button>Edit Lead</button>
@@ -109,4 +112,10 @@ class Leads extends React.Component {
   }
 }
 
-export default Leads;
+const mapStateToProps = (state) => {
+  return{
+    redux :state
+  }
+}
+//the empty {} below works as mapDispatchToProps
+export default connect(mapStateToProps, {})(Leads);

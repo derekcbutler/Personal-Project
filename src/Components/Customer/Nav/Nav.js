@@ -1,15 +1,11 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-// import { connect } from 'react-redux';
-// import { logout } from '../../../redux/'
+import { connect } from 'react-redux';
+import { logout } from "../../../redux/reducer";
 import "./Nav.css";
 
-const Nav = (props) => {
-
-
-
-
-    console.log("props", props)
+const Nav = props => {
+  console.log("props", props);
   return (
     <div>
       {props.location.pathname === "/login" ? null : (
@@ -26,6 +22,8 @@ const Nav = (props) => {
             <Link to="/products" className="menu-buttons">
               Products
             </Link>
+            
+            <button onClick={props.logout}>Logout</button>
             {/* <Link className="menu-buttons">Invest</Link> //?    MAKE A LINK FOR THIS */}
           </nav>
         </nav>
@@ -33,4 +31,16 @@ const Nav = (props) => {
     </div>
   );
 };
-export default withRouter(Nav);
+const mapStateToProps = state => {
+  return {
+    redux: state
+  }
+}
+
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { logout }
+  )(Nav)
+);

@@ -39,6 +39,11 @@ module.exports = {
     return res.status(200).send(req.session.user);
   },
 
+  logout: (req, res) => {
+    req.session.destroy()
+    res.status(200).send('logged out')
+  },
+
   getLeads: (req, res) => {
     if (req.session.user) {
       res.status(200).send(db.get_leads);

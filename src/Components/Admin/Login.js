@@ -31,7 +31,7 @@ class Login extends React.Component {
       })
       .then(res => {
         this.props.updateUser(res.data);
-        this.props.history.push("/landing");
+        this.props.history.push("/");
         this.setState({ username: "", password: "" });
         this.props.login();
       })
