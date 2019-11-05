@@ -18,4 +18,21 @@
     color:white;
     display: flex;
     margin-right: 20px;
+    flex-direction: column;
+}
+.myLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    top: 10vh;
+
+    
+}
+.icon{
+    /* margin-right: 20px; */
+    color: white;
+    display: flex;
+    /* position: relative; */
 }
