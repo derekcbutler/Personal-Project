@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getLeads } from "../../../redux/reducer";
+import './Leads.css';
 
 class Leads extends React.Component {
   constructor() {
@@ -117,10 +118,14 @@ class Leads extends React.Component {
           //! FINISH HERE
         </div>
         {leads[0] ? (
-          <div>
+          <div className='leads-box'>
             {" "}
             {leads[0].name_first}
             {leads[0].name_last}
+            {leads[0].phone}
+            {leads[0].email}
+            {leads[0].lead_status}
+            {leads[0].notes}
           </div>
         ) : null}
 
