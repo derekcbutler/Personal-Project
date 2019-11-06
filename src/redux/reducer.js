@@ -11,6 +11,7 @@ const UPDATE_USER = "UPDATE_USER";
 const LOGOUT = "LOGOUT";
 const LOGIN = "LOGIN";
 const GET_LEADS = 'GET_LEADS';
+const DELETE_LEADS = 'DELETE_LEADS';
 
 export function getLeads() {
   console.log('hit')
@@ -46,6 +47,15 @@ export const login = () => {
   };
 };
 
+export const deleteLead = (id) => {
+  let newLoad = axios.delete(`/api/leads/${id}`).then(res => res.data)
+  console.log(newLoad)
+  return {
+    type: DELETE_LEADS,
+    payload: newLoad
+  }
+}
+
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
@@ -59,6 +69,9 @@ export default function reducer(state = initialState, action) {
     case GET_LEADS + '_FULFILLED':
       console.log('hit getLeads')
       return { ...state, leads: payload };
+    case DELETE_LEADS + '_FULFILLED':
+      console.log(payload)
+        return { ...state, leads: payload };
     default:
       return state;
   }

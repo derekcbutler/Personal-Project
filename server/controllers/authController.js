@@ -79,8 +79,11 @@ module.exports = {
   deleteLead: (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
+    console.log(id)
     db.delete_lead(+id).then(data => {
-      res.status(200).send(data);
-    });
+      console.log(data)
+     return res.status(200).send(data);
+    })
+    .catch(err => console.log(err));
   }
 };

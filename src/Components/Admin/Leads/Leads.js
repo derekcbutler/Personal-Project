@@ -2,13 +2,14 @@ import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { getLeads } from "../../../redux/reducer";
-import './Leads.css';
+import { getLeads, deleteLead } from "../../../redux/reducer";
+import "./Leads.css";
 
 class Leads extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      leads: [],
       name_first: "",
       name_last: "",
       phone: 0,
@@ -19,7 +20,8 @@ class Leads extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getLeads();
+    this.props.getLeads()
+    
   }
 
   handleInput = e => {
@@ -27,12 +29,6 @@ class Leads extends React.Component {
       [e.target.name]: e.target.value
     });
   };
-
-  // displayLeads = () => {
-  //   axios.get("/api/leads").then(res => {
-
-  //   })
-  // }
 
   handleNewLead = () => {
     console.log(this.state);
@@ -59,9 +55,14 @@ class Leads extends React.Component {
       .catch(err => console.log(err));
   };
 
+  // delete = (id) => {
+  //   this.props.deleteLead(id)
+  // }
+
   render() {
     console.log(this.props);
     let { leads } = this.props.redux.reducer;
+    // console.log(leads);
     if (!this.props.redux.reducer.user.loggedIn) {
       return <Redirect to="/" />;
     }
@@ -118,21 +119,28 @@ class Leads extends React.Component {
           //! FINISH HERE
         </div>
         {leads[0] ? (
-          <div className='leads-box'>
-            {" "}
-            {leads[0].name_first}
-            {leads[0].name_last}
-            {leads[0].phone}
-            {leads[0].email}
-            {leads[0].lead_status}
-            {leads[0].notes}
+          <div className="leads-box">
+            {this.props.redux.reducer.leads.map((e, i) => {
+              return (
+                <div key={`hey ${i}`}>
+                  <div >
+                    {e.name_first}
+                    {e.name_last}
+                    {e.phone}
+                    {e.email}
+                    {e.lead_status}
+                    {e.notes}
+                 
+                  </div>
+                  <nav>
+                    <button>Edit Lead</button>
+                    <button onClick={() => this.props.deleteLead(e.lead_id)}>Delete Lead</button>
+                  </nav>
+                </div>
+              );
+            })}
           </div>
         ) : null}
-
-        <nav>
-          <button>Edit Lead</button>
-          <button>Delete Lead</button>
-        </nav>
       </div>
     );
   }
@@ -146,5 +154,5 @@ const mapStateToProps = state => {
 //the empty {} below works as mapDispatchToProps
 export default connect(
   mapStateToProps,
-  { getLeads }
+  { getLeads, deleteLead }
 )(Leads);
