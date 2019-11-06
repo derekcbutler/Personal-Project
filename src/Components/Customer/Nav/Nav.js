@@ -12,7 +12,7 @@ const Nav = props => {
   };
 
   console.log("props", props);
-  console.log(props.redux.user.loggedIn);
+  console.log(props.redux.reducer.user.loggedIn);
   // console.log(props)
   return (
     <div>
@@ -35,7 +35,7 @@ const Nav = props => {
                 <Link to="/products" className="menu-buttons">
                   Products
                 </Link>
-                {props.redux.user.loggedIn ? (
+                {props.redux.reducer.user.loggedIn ? (
                   <div>
                     <Link to="/leads" className="menu-buttons">
                       Leads

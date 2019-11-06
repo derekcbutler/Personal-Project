@@ -4,7 +4,7 @@ CREATE TABLE leads(
     name_last VARCHAR(100),
     phone TEXT,
     email TEXT,
-    status TEXT,
+    lead_status TEXT,
     notes VARCHAR(300)
 );
 

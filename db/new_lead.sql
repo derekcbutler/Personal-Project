@@ -3,15 +3,15 @@ INSERT INTO leads (
     name_last,
     phone,
     email,
-    status,
+    lead_status,
     notes
 ) VALUES (
-    $1,
-    $2,
-    $3,
-    $4,
-    $5,
-    $6
+    ${name_first},
+    ${name_last},
+    ${phone},
+    ${email},
+    ${lead_status},
+    ${notes}
 );
 
 select * from leads order by lead_id;

@@ -3,12 +3,26 @@ import axios from "axios";
 const initialState = {
   user: {
     loggedIn: false
-  }
+  },
+  leads: []
 };
 
 const UPDATE_USER = "UPDATE_USER";
 const LOGOUT = "LOGOUT";
 const LOGIN = "LOGIN";
+const GET_LEADS = 'GET_LEADS';
+
+export function getLeads() {
+  console.log('hit')
+  let leads = axios.get('/api/leads').then(res => {
+    console.log(res)
+    return res.data})
+    
+  return {
+    type: GET_LEADS,
+    payload: leads
+  }
+}
 
 export function updateUser(userObj) {
   return {
@@ -41,6 +55,10 @@ export default function reducer(state = initialState, action) {
       return { ...state, user: { loggedIn: false } };
     case LOGIN:
       return { ...state, user: { loggedIn: true } };
+
+    case GET_LEADS + '_FULFILLED':
+      console.log('hit getLeads')
+      return { ...state, leads: payload };
     default:
       return state;
   }

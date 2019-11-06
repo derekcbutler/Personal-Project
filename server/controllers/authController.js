@@ -40,31 +40,36 @@ module.exports = {
   },
 
   logout: (req, res) => {
-    req.session.destroy()
-    res.status(200).send('logged out')
+    req.session.destroy();
+    res.status(200).send("logged out");
   },
 
-  getLeads: (req, res) => {
-    if (req.session.user) {
-      res.status(200).send(db.get_leads);
-    }
-    res.sendStatus(200);
+  getLeads: async(req, res) => {
+    // if (req.session.user) {
+    //   res.status(200).send(db.get_leads);
+    // }
+    // res.sendStatus(200);
+    const db = req.app.get('db');
+
+    let leads = await db.get_leads();
+      res.status(200).send(leads)
   },
 
   newLead: (req, res) => {
+    console.log(req.body);
     const db = req.app.get("db");
-    const { name_first, name_last, phone, email, status, notes } = req.body;
+    const { name_first, name_last, phone, email, lead_status, notes } = req.body;
 
-    db.new_lead([name_first, name_last, phone, email, status, notes]).then(
-      data => res.status(200).send(data)
-    );
+    db.new_lead({name_first, name_last, phone, email, lead_status, notes})
+      .then(data => res.status(200).send(data))
+      .catch(err => console.log(err));
   },
 
   editLead: (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
-    const { name_first, name_last, phone, email, status, notes } = req.body;
-    db.edit_lead([name_first, name_last, phone, email, status, notes, id]).then(
+    const { name_first, name_last, phone, email, lead_status, notes } = req.body;
+    db.edit_lead([name_first, name_last, phone, email, lead_status, notes, id]).then(
       data => {
         res.status(200).send(data);
       }
@@ -74,6 +79,8 @@ module.exports = {
   deleteLead: (req, res) => {
     const db = req.app.get("db");
     const { id } = req.params;
-    db.delete_lead( +id ).then(data =>{ res.status(200).send(data)})
+    db.delete_lead(+id).then(data => {
+      res.status(200).send(data);
+    });
   }
 };

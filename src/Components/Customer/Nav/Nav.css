@@ -19,6 +19,8 @@
     display: flex;
     margin-right: 20px;
     flex-direction: column;
+    background-color: blueviolet;
+    padding: 5px 10px
 }
 .myLinks{
     display: flex;
@@ -26,13 +28,16 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
+    right: -5vw;
     top: 10vh;
 
     
 }
 .icon{
-    /* margin-right: 20px; */
+
     color: white;
     display: flex;
-    /* position: relative; */
+    right: 10vw;
+    flex-direction: flex-end;
+    position: absolute;
 }

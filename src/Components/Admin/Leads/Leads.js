@@ -1,23 +1,25 @@
 import React from "react";
 import axios from "axios";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { getLeads } from "../../../redux/reducer";
 
 class Leads extends React.Component {
   constructor() {
     super();
     this.state = {
-      first: "",
-      last: "",
+      name_first: "",
+      name_last: "",
       phone: 0,
       email: "",
-      status: false,
+      lead_status: "",
       notes: ""
     };
   }
 
-  componentDidMount() {}
-
+  componentDidMount() {
+    this.props.getLeads();
+  }
 
   handleInput = e => {
     this.setState({
@@ -25,28 +27,31 @@ class Leads extends React.Component {
     });
   };
 
-  toggleStatus = () => {
-    this.setState({ status: !this.state.status });
-  };
+  // displayLeads = () => {
+  //   axios.get("/api/leads").then(res => {
+
+  //   })
+  // }
 
   handleNewLead = () => {
+    console.log(this.state);
     axios
       .post("/api/leads", {
-        first: this.state.first,
-        last: this.state.last,
+        name_first: this.state.name_first,
+        name_last: this.state.name_last,
         phone: this.state.phone,
         email: this.state.email,
-        status: null,
+        lead_status: this.state.lead_status,
         notes: this.state.notes
       })
       .then(res => {
         this.props.updateUser(res.data);
         this.setState({
-          first: "",
-          last: "",
+          name_first: "",
+          name_last: "",
           phone: 0,
           email: "",
-          status: false, //! might need to change this value???
+          lead_status: "",
           notes: ""
         });
       })
@@ -54,55 +59,71 @@ class Leads extends React.Component {
   };
 
   render() {
-    console.log(this.props.redux.user.loggedIn)
-    if(!this.props.redux.user.loggedIn ){
-      return <Redirect to='/'/>
+    console.log(this.props);
+    let { leads } = this.props.redux.reducer;
+    if (!this.props.redux.reducer.user.loggedIn) {
+      return <Redirect to="/" />;
     }
     return (
       <div>
-        <div>
+        <div className="newLead-input">
+          New Lead:
+          <br></br>
           <input
             placeholder="first name"
-            value={this.state.first}
-            name="first"
-            onChange={e => this.handleNewLead}
+            value={this.state.name_first}
+            name="name_first"
+            onChange={e => this.handleInput(e)}
           />
           <input
             placeholder="last name"
-            value={this.state.last}
-            name="last"
-            onChange={e => this.handleNewLead}
+            value={this.state.name_last}
+            name="name_last"
+            onChange={e => this.handleInput(e)}
           />
           <input
             placeholder="phone number"
             value={this.state.phone}
             name="phone"
-            onChange={this.handleNewLead}
+            onChange={e => this.handleInput(e)}
           />
           <input
             placeholder="email"
             value={this.state.email}
             name="email"
-            onChange={this.handleNewLead}
+            onChange={e => this.handleInput(e)}
           />
-          <button>status</button>
+          <input
+            placeholder=""
+            value={this.state.lead_status}
+            name="lead_status"
+            onChange={e => this.handleInput(e)}
+          />
           <input
             placeholder="notes"
             value={this.state.notes}
             name="notes"
-            onChange={this.handleNewLead}
+            onChange={e => this.handleInput(e)}
           />
-          <button>Submit</button>
-          {this.state.status ? (
+          <button onClick={this.handleNewLead}>Submit</button>
+          {/* {this.state.status ? (
             <div>
               <div>Active</div>
               <div>Inactive</div>
               <div>Not Interested</div>
               <div>Pending</div>
             </div>
-           ) : null}
+          ) : null} */}
           //! FINISH HERE
         </div>
+        {leads[0] ? (
+          <div>
+            {" "}
+            {leads[0].name_first}
+            {leads[0].name_last}
+          </div>
+        ) : null}
+
         <nav>
           <button>Edit Lead</button>
           <button>Delete Lead</button>
@@ -112,10 +133,13 @@ class Leads extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return{
-    redux :state
-  }
-}
+const mapStateToProps = state => {
+  return {
+    redux: state
+  };
+};
 //the empty {} below works as mapDispatchToProps
-export default connect(mapStateToProps, {})(Leads);
+export default connect(
+  mapStateToProps,
+  { getLeads }
+)(Leads);

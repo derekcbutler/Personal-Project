@@ -4,7 +4,7 @@ set
     name_last =$2,
     phone=$3,
     email=$4,
-    status=$5,
+    lead_status=$5,
     notes=$6
     where
     lead_id = $7;
