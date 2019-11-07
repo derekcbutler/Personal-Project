@@ -1,0 +1,16 @@
+.chart-page{
+    height: 85vh;
+    width: 100vw;
+    font-size: 12px;
+    border: black solid 1px;
+    background-color: green;
+}
+.chart{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    
+}
+canvas {
+    height: 50vh !important
+}
