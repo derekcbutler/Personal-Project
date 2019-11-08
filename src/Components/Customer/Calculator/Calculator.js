@@ -8,34 +8,35 @@ class Calculator extends React.Component {
   constructor() {
     super();
     this.state = {
-        input: 0,
-        x: 0,
-        y: 0,
-        z: 0,
-      
+      input: 0,
+      x: 0,
+      y: 0,
+      z: 0,
+
+      labels: ["year 1", "year 2", "year 3", "year 4", "year 5"],
+
       data: {
-        label: [
-            "month 1",
-            "month 2",
-            "month 3",
-            "month 4",
-            "month 5",
-            "month 6",
-            "month 7",
-            "month 8",
-            "month 9",
-            "month 10",
-            "month 11",
-            "month 12",
-            "year 2",
-            "year 3",
-            "year 4",
-            "year 5"
-          ],
-        }
+        // label: [
+        //     "month 1",
+        //     "month 2",
+        //     "month 3",
+        //     "month 4",
+        //     "month 5",
+        //     "month 6",
+        //     "month 7",
+        //     "month 8",
+        //     "month 9",
+        //     "month 10",
+        //     "month 11",
+        //     "month 12",
+        //     "year 2",
+        //     "year 3",
+        //     "year 4",
+        //     "year 5"
+        //   ],
+      }
     };
   }
-
 
   calculator = e => {
     var input = e.target.value;
@@ -56,29 +57,34 @@ class Calculator extends React.Component {
       }
     } while (input >= 2500);
     this.setState({
-        
-    })
-    console.log(input, x, y, z);
+      input: input,
+      x: x,
+      y: y,
+      z: z
+    });
+    // console.log(input, x, y, z);
   };
-  
 
   render() {
+    // console.log(this.state.input)
+    console.log(this.state.input);
     return (
       <div className="chart-page">
+        **Investable amounts are in increments of $2,500**
         <Line
           className="chart"
           data={this.state}
           //   style={{height:'500px'}}
           options={{
             title: {
-              responsive: true,
+              // responsive: true,
               display: true,
-              text: "RETURNS CALCULATOR"
+              text: "YEARLY RETURNS CALCULATOR"
             },
-            // legend: {
-            //   display: true,
-            //   position: "right"
-            // },
+            legend: {
+              display: true,
+              position: "right"
+            },
             scales: {
               yAxes: [
                 {
@@ -90,28 +96,31 @@ class Calculator extends React.Component {
                     max: 100000,
                     fontColor: "black",
                     fontSize: 15
-            //       }
-            //     }
-            //   ],
-            //   xAxes: [
-            //     {
-            //       ticks: {
-            //         fontSize: 10,
-            //         beginAtZero: true,
-            //         steps: 5,
-            //         stepSize: 1,
-            //         max: 16,
-            //         fontColor: "black",
-            //         data: this.state.label
+                    //       }
+                    //     }
+                    //   ],
+                    //   xAxes: [
+                    //     {
+                    //       ticks: {
+                    //         fontSize: 10,
+                    //         beginAtZero: true,
+                    //         steps: 5,
+                    //         stepSize: 1,
+                    //         max: 16,
+                    //         fontColor: "black",
+                    //         data: this.state.label
                   }
                 }
               ]
             }
           }}
-        //  data = {this.state.data}
+          // data={this.state.data}
         />
-        amount:
+        Investment amount : 
         <input placeholder="$" onChange={e => this.calculator(e)} />
+        <br></br>
+        amount remainder: $
+        {this.state.input}
         {/* <Footer /> */}
       </div>
     );

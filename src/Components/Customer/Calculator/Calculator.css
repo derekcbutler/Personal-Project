@@ -6,11 +6,11 @@
     background-color: wheat;
 }
 .chart{
-    width: 100vw;
+    width: 90vw;
     height: 60vh;
     display: flex;
     
 }
 canvas {
-    height: 50vh !important
+    height: 40vh !important
 }
