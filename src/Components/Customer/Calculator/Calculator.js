@@ -13,33 +13,45 @@ class Calculator extends React.Component {
       y: 0,
       z: 0,
 
-      labels: ["year 1", "year 2", "year 3", "year 4", "year 5"],
+      labels: ["year 1", "year 2", "year 3", "year 4", "year 5", "year 6"],
 
       data: {
-        // label: [
-        //     "month 1",
-        //     "month 2",
-        //     "month 3",
-        //     "month 4",
-        //     "month 5",
-        //     "month 6",
-        //     "month 7",
-        //     "month 8",
-        //     "month 9",
-        //     "month 10",
-        //     "month 11",
-        //     "month 12",
-        //     "year 2",
-        //     "year 3",
-        //     "year 4",
-        //     "year 5"
-        //   ],
+        datasets: [
+          {
+            label: "Bundle 1",
+            backgroundColor: "rgba(255,176,8, .7)",
+            data: ""
+          }
+        ]
       }
     };
   }
 
+
+  //?this will display the data and annual amounts on the chart
+  setData = () => {
+    let yearValues = [],
+    bundleOne = 0,
+    bundleTwo = 0,
+    bundleThree = 0,
+
+    //? bundle 1 loop
+    for (let i = 0; i < 5; i ++){
+      let bOneValues = bundleOne + 750 * 12
+      yearValues.push(bOneValues)
+    }
+    for (let j = 0; j < 5; j++){
+      let bTwoValues = bundleTwo + 300 * 12
+      yearValues.push(bTwoValues)
+    }
+    for (let k = 0; k < 5; k++){
+      let bThreeValues = bundleThree + 75 * 12
+      yearValues.push(bThreeValues)
+    }
+  };
+
   calculator = e => {
-    var input = e.target.value;
+    let input = e.target.value;
     let x = 0;
     let y = 0;
     let z = 0;
@@ -57,17 +69,28 @@ class Calculator extends React.Component {
       }
     } while (input >= 2500);
     this.setState({
-      input: input,
-      x: x,
-      y: y,
-      z: z
+      ...this.state,
+      input,
+      x,
+      y,
+      z,
+      data: {
+        datasets: [
+          {
+            data: [x, y, z]
+          }
+        ]
+      }
     });
+    // let insertData = [x, y, z];
+   
+    // this.state.data.datasets.data
     // console.log(input, x, y, z);
   };
 
   render() {
     // console.log(this.state.input)
-    console.log(this.state.input);
+    console.log(this.state);
     return (
       <div className="chart-page">
         **Investable amounts are in increments of $2,500**
@@ -116,11 +139,38 @@ class Calculator extends React.Component {
           }}
           // data={this.state.data}
         />
-        Investment amount : 
-        <input placeholder="$" onChange={e => this.calculator(e)} />
         <br></br>
-        amount remainder: $
-        {this.state.input}
+        <div>
+          Investment amount :
+          <input placeholder="$" onChange={e => this.calculator(e)} />
+          <br></br>
+          <br></br>
+          {/* <br></br> */}
+          <div>
+            package 1 count: {`${this.state.x}`}
+            <br></br>
+            monthly return: {`${this.state.x * 750}`}
+          </div>
+          <br></br>
+          <div>
+            package 2 count:{`${this.state.y}`}
+            <br></br>
+            monthly return: {`${this.state.y * 300}`}
+          </div>
+          <br></br>
+          <div>
+            package 3 count: {`${this.state.z}`}
+            <br></br>
+            monthly return: {`${this.state.z * 75}`}
+          </div>
+          <br></br>
+          <div>
+            TOTAL MONTHLY RETURN:{" "}
+            {`${this.state.x * 750 + this.state.y * 300 + this.state.z * 75}`}
+            {/* amount remainder: $
+        {this.state.input} */}
+          </div>
+        </div>
         {/* <Footer /> */}
       </div>
     );

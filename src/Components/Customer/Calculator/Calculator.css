@@ -1,12 +1,12 @@
 .chart-page{
-    height: 85vh;
+    height: 90vh;
     width: 100vw;
     font-size: 12px;
     border: black solid 1px;
     background-color: wheat;
 }
 .chart{
-    width: 90vw;
+    width: 80vw;
     height: 60vh;
     display: flex;
     
