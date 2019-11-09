@@ -13,42 +13,29 @@ class Calculator extends React.Component {
       y: 0,
       z: 0,
 
-      labels: ["year 1", "year 2", "year 3", "year 4", "year 5", "year 6"],
+      labels: ["0", "year 1", "year 2", "year 3", "year 4", "year 5"],
 
       data: {
         datasets: [
           {
             label: "Bundle 1",
-            backgroundColor: "rgba(255,176,8, .7)",
-            data: ""
+            backgroundColor: "rgba(255,155,8, .2)",
+            data: [0, 45000]
+          },
+          {
+            label: "Bundle 2",
+            backgroundColor: "rgba(255,155,8, .3)",
+            data: [0,14400]
+          },
+          {
+            label: "Bundle 3",
+            backgroundColor: "rgba(248,77,77, 1)",
+            data: [0, 4500]
           }
         ]
       }
     };
   }
-
-
-  //?this will display the data and annual amounts on the chart
-  setData = () => {
-    let yearValues = [],
-    bundleOne = 0,
-    bundleTwo = 0,
-    bundleThree = 0,
-
-    //? bundle 1 loop
-    for (let i = 0; i < 5; i ++){
-      let bOneValues = bundleOne + 750 * 12
-      yearValues.push(bOneValues)
-    }
-    for (let j = 0; j < 5; j++){
-      let bTwoValues = bundleTwo + 300 * 12
-      yearValues.push(bTwoValues)
-    }
-    for (let k = 0; k < 5; k++){
-      let bThreeValues = bundleThree + 75 * 12
-      yearValues.push(bThreeValues)
-    }
-  };
 
   calculator = e => {
     let input = e.target.value;
@@ -82,22 +69,75 @@ class Calculator extends React.Component {
         ]
       }
     });
-    // let insertData = [x, y, z];
-   
-    // this.state.data.datasets.data
-    // console.log(input, x, y, z);
+
+    let yearValues = [],
+    bundleOne = 0,
+    bundleTwo = 0,
+    bundleThree = 0;
+
+  //? bundle 1 loop
+  for (let i = 0; i < 5; i++) {
+    let bOneValues = bundleOne + this.state.x * 750 * 12;
+    yearValues.push(bOneValues);
+  }
+  for (let j = 0; j < 5; j++) {
+    let bTwoValues = bundleTwo + this.state.y * 300 * 12;
+    yearValues.push(bTwoValues);
+  }
+  for (let k = 0; k < 5; k++) {
+    let bThreeValues = bundleThree + this.state.z * 75 * 12;
+    yearValues.push(bThreeValues);
+  }
+  this.setState({
+    data: {
+      datasets: [
+        
+      //   {
+      //     data: [
+      //       yearValues[0],
+      //       yearValues[1],
+      //       yearValues[2],
+      //       yearValues[3],
+      //       yearValues[4]
+      //     ]
+      //   },
+      //   {
+      //     data: [
+      //       yearValues[5],
+      //       yearValues[6],
+      //       yearValues[7],
+      //       yearValues[8],
+      //       yearValues[9]
+      //     ]
+      //   },
+      //   {
+      //     data: [
+      //       yearValues[10],
+      //       yearValues[11],
+      //       yearValues[12],
+      //       yearValues[13],
+      //       yearValues[14]
+      //     ]
+      //   }
+      ]
+    }
+  });
   };
 
+
   render() {
-    // console.log(this.state.input)
-    console.log(this.state);
+    console.log(this.state.data.datasets[0])
+    // console.log(this.setData)
+    // console.log(result[0])
+    // console.log(yearValues)
+    // console.log(this.state.put)
+    // console.log(this.state);
     return (
       <div className="chart-page">
         **Investable amounts are in increments of $2,500**
         <Line
           className="chart"
           data={this.state}
-          //   style={{height:'500px'}}
           options={{
             title: {
               // responsive: true,
@@ -114,30 +154,55 @@ class Calculator extends React.Component {
                   ticks: {
                     autoSkip: false,
                     beginAtZero: true,
-                    steps: 5,
-                    stepSize: 15000,
-                    max: 100000,
+                    steps: 10,
+                    stepSize: 5000,
+                    max: 50000,
                     fontColor: "black",
                     fontSize: 15
-                    //       }
-                    //     }
-                    //   ],
-                    //   xAxes: [
-                    //     {
-                    //       ticks: {
-                    //         fontSize: 10,
-                    //         beginAtZero: true,
-                    //         steps: 5,
-                    //         stepSize: 1,
-                    //         max: 16,
-                    //         fontColor: "black",
-                    //         data: this.state.label
+                          }
+                        }
+                      ],
+                      xAxes: [
+                        {
+                          ticks: {
+                            fontSize: 10,
+                            beginAtZero: true,
+                            steps: 5,
+                            stepSize: 1,
+                            max: 16,
+                            fontColor: "black",
+                            data: this.state.label
                   }
                 }
               ]
             }
           }}
-          // data={this.state.data}
+          data = {this.state.data}
+          // data={
+          //   (this.yearValues = [
+          //     [
+          //       result[0],
+          //       result[1],
+          //       result[2],
+          //       result[3],
+          //       result[4]
+          //     ],
+          //     [
+          //       result[5],
+          //       result[6],
+          //       result[7],
+          //       result[8],
+          //       result[9]
+          //     ],
+          //     [
+          //       result[10],
+          //       result[11],
+          //       result[12],
+          //       result[13],
+          //       result[14]
+          //     ]
+          //   ])
+          // }
         />
         <br></br>
         <div>
@@ -176,4 +241,5 @@ class Calculator extends React.Component {
     );
   }
 }
+
 export default Calculator;
