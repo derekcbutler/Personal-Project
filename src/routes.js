@@ -5,6 +5,7 @@ import Calculator from './Components/Customer/Calculator/Calculator';
 import Products from './Components/Customer/Products/Products';
 import Login from './Components/Admin/Login';
 import Leads from './Components/Admin/Leads/Leads';
+import Invest from './Components/Customer/Invest/Invest';
 
 
 export default (
@@ -14,5 +15,6 @@ export default (
         <Route path = '/products' component={Products} />
         <Route path = '/login' component={Login} />
         <Route path = '/leads' component={Leads} />
+        <Route path = '/invest' component={Invest} />
     </Switch>
 )

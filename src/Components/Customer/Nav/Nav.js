@@ -24,7 +24,7 @@ const Nav = props => {
             </Link>
           </div>
           <a className="icon">
-            <i className="fa fa-bars" onClick={drop} ></i>
+            <i className="fa fa-bars" onClick={drop}></i>
           </a>
           <div className="myLinks">
             {menu ? (
@@ -35,6 +35,9 @@ const Nav = props => {
                 <Link to="/products" className="menu-buttons">
                   Products
                 </Link>
+                <Link to="/invest" className="menu-buttons">
+                  Invest
+                </Link>
                 {props.redux.reducer.user.loggedIn ? (
                   <div>
                     <Link to="/leads" className="menu-buttons">
@@ -43,8 +46,6 @@ const Nav = props => {
                     <button onClick={props.logout}>Logout</button>
                   </div>
                 ) : null}
-
-                {/* <Link className="menu-buttons">Invest</Link> //!    MAKE A LINK FOR THIS */}
               </nav>
             ) : null}
           </div>

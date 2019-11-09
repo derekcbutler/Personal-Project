@@ -61,36 +61,36 @@ class Calculator extends React.Component {
       x,
       y,
       z,
-      data: {
-        datasets: [
-          {
-            data: [x, y, z]
-          }
-        ]
-      }
+      // data: {
+      //   datasets: [
+      //     {
+      //       data: [x, y, z]
+      //     }
+      //   ]
+      // }
     });
 
-    let yearValues = [],
-    bundleOne = 0,
-    bundleTwo = 0,
-    bundleThree = 0;
+    // let yearValues = [],
+    // bundleOne = 0,
+    // bundleTwo = 0,
+    // bundleThree = 0;
 
   //? bundle 1 loop
-  for (let i = 0; i < 5; i++) {
-    let bOneValues = bundleOne + this.state.x * 750 * 12;
-    yearValues.push(bOneValues);
-  }
-  for (let j = 0; j < 5; j++) {
-    let bTwoValues = bundleTwo + this.state.y * 300 * 12;
-    yearValues.push(bTwoValues);
-  }
-  for (let k = 0; k < 5; k++) {
-    let bThreeValues = bundleThree + this.state.z * 75 * 12;
-    yearValues.push(bThreeValues);
-  }
-  this.setState({
-    data: {
-      datasets: [
+  // for (let i = 0; i < 5; i++) {
+  //   let bOneValues = bundleOne + this.state.x * 750 * 12;
+  //   yearValues.push(bOneValues);
+  // }
+  // for (let j = 0; j < 5; j++) {
+  //   let bTwoValues = bundleTwo + this.state.y * 300 * 12;
+  //   yearValues.push(bTwoValues);
+  // }
+  // for (let k = 0; k < 5; k++) {
+  //   let bThreeValues = bundleThree + this.state.z * 75 * 12;
+  //   yearValues.push(bThreeValues);
+  // }
+  // this.setState({
+  //   data: {
+  //     datasets: [
         
       //   {
       //     data: [
@@ -119,19 +119,15 @@ class Calculator extends React.Component {
       //       yearValues[14]
       //     ]
       //   }
-      ]
-    }
-  });
+      // ]
+    // }
+  // });
   };
 
 
   render() {
     console.log(this.state.data.datasets[0])
-    // console.log(this.setData)
-    // console.log(result[0])
-    // console.log(yearValues)
-    // console.log(this.state.put)
-    // console.log(this.state);
+
     return (
       <div className="chart-page">
         **Investable amounts are in increments of $2,500**
@@ -140,9 +136,9 @@ class Calculator extends React.Component {
           data={this.state}
           options={{
             title: {
-              // responsive: true,
+              
               display: true,
-              text: "YEARLY RETURNS CALCULATOR"
+              text: "Minimum return amount's per Bundle"
             },
             legend: {
               display: true,
@@ -178,35 +174,14 @@ class Calculator extends React.Component {
             }
           }}
           data = {this.state.data}
-          // data={
-          //   (this.yearValues = [
-          //     [
-          //       result[0],
-          //       result[1],
-          //       result[2],
-          //       result[3],
-          //       result[4]
-          //     ],
-          //     [
-          //       result[5],
-          //       result[6],
-          //       result[7],
-          //       result[8],
-          //       result[9]
-          //     ],
-          //     [
-          //       result[10],
-          //       result[11],
-          //       result[12],
-          //       result[13],
-          //       result[14]
-          //     ]
-          //   ])
-          // }
+
         />
         <br></br>
         <div>
-          Investment amount :
+          RETURNS CALCULATOR
+          <br></br>
+          <br></br>
+          {`Investment amount : `}
           <input placeholder="$" onChange={e => this.calculator(e)} />
           <br></br>
           <br></br>

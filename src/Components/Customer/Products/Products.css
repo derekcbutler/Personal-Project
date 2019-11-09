@@ -1,0 +1,44 @@
+.full{
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#body{
+    width: 100vw;
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+    
+}
+.bundle{
+    border: solid black 2px;
+    border-radius: 12px;
+    width: 94vw;
+    margin-top: 30px;
+    padding: 5px 0 39px 0;
+    text-decoration: none;
+    background-color: transparent;
+}
+.returns{
+    font-size: 22px;
+    font-weight: 600;
+}
+.italics{
+    font-style: italic;
+    font-weight: 500;
+}
+.invest-button{
+    border: black solid 2px;
+    background-color: gray;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    float: right;
+    margin-right: 10px;
+    justify-content: flex-end;
+    text-decoration: none;
+    padding: 7px;
+    font-size: 16px;
+}
