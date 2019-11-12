@@ -5,6 +5,7 @@
     align-content: center;
     height: 180vh;
     background-color: whitesmoke;
+    font-family: 'Big Shoulders Text', cursive;
 }
 
 #body{
@@ -23,6 +24,7 @@
     padding: 5px 0 39px 0;
     text-decoration: none;
     background-color: transparent;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .returns{
     font-size: 22px;
