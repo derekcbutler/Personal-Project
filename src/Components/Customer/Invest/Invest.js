@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
+// import Stripe from 'stripe'
 
 import "./Invest.css";
 
@@ -27,17 +28,17 @@ class Invest extends React.Component {
 
   submitButton = () => {
     //? this function creates a lead when the customer presses the submit button to invest and withing this function it will open strip
-    //!upon click it will push to Strip and also create new lead with the status of active
-    console.log(this.state);
+    // console.log(this.state);
     axios
       .post("/api/leads", {
         name_first: this.state.name_first,
         name_last: this.state.name_last,
         phone: this.state.phone,
         email: this.state.email,
-        lead_status: this.state.lead_status,
+        lead_status: this.state.lead_status
       })
       .then(res => {
+        console.log(res);
         this.setState({
           name_first: "",
           name_last: "",
@@ -48,6 +49,7 @@ class Invest extends React.Component {
       })
       .catch(err => console.log(err));
   };
+
   onOpened = () => {
     console.log("opened");
   };
@@ -56,14 +58,14 @@ class Invest extends React.Component {
     console.log("closed");
   };
 
-  onCharge = charge => {
-    console.log(charge);
+  onToken = token => {
+    console.log(token);
     let { amount } = this.state;
     amount *= 100;
     console.log(amount);
-    charge.card = void 0;
+    token.card = void 0;
     axios
-      .post("api/payment", { charge, amount: this.state.amount })
+      .post("api/payment", { token, amount: this.state.amount })
       .then(res => {
         console.log(res);
         alert(
@@ -73,8 +75,12 @@ class Invest extends React.Component {
   };
 
   render() {
+    // console.log(submitButton)
+    console.log(this.state);
+    // var REACT_APP_STRIPE_KEY = Stripe('pk_live_yPH3gVCkN6IOElI40SDM3bfu00J0T42rMa')
     return (
       <div id="body">
+        <script src="https://js.stripe.com/v3/"></script>
         <div>
           <br></br>
           Invest:
@@ -125,24 +131,30 @@ class Invest extends React.Component {
               {"Amount: "}
               <input
                 className="input-boxes"
+                name="amount"
                 placeholder="i.e. $15000.00"
                 value={this.state.amount}
                 type="number"
                 onChange={e => this.handleChange(e)}
               />
               <br></br>
-              
-              <StripeCheckout
-                name="test"
-                stripeKey={process.env.REACT_APP_STRIPE_KEY}
-                charge={this.onCharge}
-                amount={this.state.amount}
-                currency="USD"
-                opened={this.onOpened}
-                closed={this.onClosed}
-                allowRememberMe //default is true
-                onClick={this.submitButton}
-              ></StripeCheckout>
+
+              <button onClick={this.submitButton}>
+                <StripeCheckout
+                  name="test"
+                  stripeKey={process.env.REACT_APP_STRIPE_KEY}
+                  charge={this.onToken}
+                  amount={this.state.amount}
+                  currency="USD"
+                  opened={this.onOpened}
+                  closed={this.onClosed}
+                  allowRememberMe //default is true
+                  onClick={() => {
+                    this.onToken();
+                  }}
+                  // onClick={}
+                ></StripeCheckout>
+              </button>
             </div>
           </div>
         </div>

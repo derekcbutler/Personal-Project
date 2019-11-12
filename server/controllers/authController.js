@@ -45,22 +45,20 @@ module.exports = {
   },
 
   getLeads: async(req, res) => {
-    // if (req.session.user) {
-    //   res.status(200).send(db.get_leads);
-    // }
-    // res.sendStatus(200);
     const db = req.app.get('db');
-
+    console.log('hit')
+    
     let leads = await db.get_leads();
-      res.status(200).send(leads)
+    // console.log(leads)
+    res.status(200).send(leads)
   },
 
   newLead: (req, res) => {
     console.log(req.body);
     const db = req.app.get("db");
-    const { name_first, name_last, phone, email, lead_status, notes } = req.body;
+    const { name_first, name_last, phone, email, lead_status} = req.body;
 
-    db.new_lead({name_first, name_last, phone, email, lead_status, notes})
+    db.new_lead({name_first, name_last, phone, email, lead_status})
       .then(data => res.status(200).send(data))
       .catch(err => console.log(err));
   },

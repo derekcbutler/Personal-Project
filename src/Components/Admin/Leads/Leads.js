@@ -55,12 +55,10 @@ class Leads extends React.Component {
       .catch(err => console.log(err));
   };
 
-  // delete = (id) => {
-  //   this.props.deleteLead(id)
-  // }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
+    console.log(this.props.redux.reducer)
     let { leads } = this.props.redux.reducer;
     // console.log(leads);
     if (!this.props.redux.reducer.user.loggedIn) {

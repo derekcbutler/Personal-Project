@@ -36,7 +36,7 @@ class Calculator extends React.Component {
       }
     };
   }
-
+//this.state.data.datasets[data]
   calculator = e => {
     let input = e.target.value;
     let x = 0;
@@ -70,63 +70,30 @@ class Calculator extends React.Component {
       // }
     });
 
-    // let yearValues = [],
-    // bundleOne = 0,
-    // bundleTwo = 0,
-    // bundleThree = 0;
+    let yearValues = [],
+    bundleOne = 0,
+    bundleTwo = 0,
+    bundleThree = 0;
 
   //? bundle 1 loop
-  // for (let i = 0; i < 5; i++) {
-  //   let bOneValues = bundleOne + this.state.x * 750 * 12;
-  //   yearValues.push(bOneValues);
-  // }
-  // for (let j = 0; j < 5; j++) {
-  //   let bTwoValues = bundleTwo + this.state.y * 300 * 12;
-  //   yearValues.push(bTwoValues);
-  // }
-  // for (let k = 0; k < 5; k++) {
-  //   let bThreeValues = bundleThree + this.state.z * 75 * 12;
-  //   yearValues.push(bThreeValues);
-  // }
-  // this.setState({
-  //   data: {
-  //     datasets: [
-        
-      //   {
-      //     data: [
-      //       yearValues[0],
-      //       yearValues[1],
-      //       yearValues[2],
-      //       yearValues[3],
-      //       yearValues[4]
-      //     ]
-      //   },
-      //   {
-      //     data: [
-      //       yearValues[5],
-      //       yearValues[6],
-      //       yearValues[7],
-      //       yearValues[8],
-      //       yearValues[9]
-      //     ]
-      //   },
-      //   {
-      //     data: [
-      //       yearValues[10],
-      //       yearValues[11],
-      //       yearValues[12],
-      //       yearValues[13],
-      //       yearValues[14]
-      //     ]
-      //   }
-      // ]
-    // }
-  // });
+  for (let i = 0; i < 5; i++) {
+    let bOneValues = bundleOne + this.state.x * 750 * 60;
+    yearValues.push(bOneValues);
+  }
+  for (let j = 0; j < 5; j++) {
+    let bTwoValues = bundleTwo + this.state.y * 300 * 60;
+    yearValues.push(bTwoValues);
+  }
+  for (let k = 0; k < 5; k++) {
+    let bThreeValues = bundleThree + this.state.z * 75 * 60;
+    yearValues.push(bThreeValues);
+  }
+
   };
 
 
   render() {
-    console.log(this.state.data.datasets[0])
+    console.log(this.state.data.datasets)
 
     return (
       <div className="chart-page">

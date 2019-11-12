@@ -5,6 +5,7 @@ module.exports = {
         const {payment: {id}, amount} = req.body;
         stripe.charges.create(
             {
+                payment_method_types: ['card'],
                 amount: amount,
                 currency: 'usd',
                 source: id,
