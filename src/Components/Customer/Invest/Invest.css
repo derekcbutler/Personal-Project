@@ -1,6 +1,8 @@
 #body{
     width: 100vw;
     height: 90vh;
+    background-color: whitesmoke;
+    color: black;
 }
 .invest-inputs{
     height: 30vh;
@@ -9,6 +11,13 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
+}
+.input-lines{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
 }
 
 .input-boxes{
@@ -19,4 +28,9 @@
 .submit{
     border: black solid 1px;
     border-radius: 12px;
+}
+.pay{
+    display: flex;
+
+    
 }

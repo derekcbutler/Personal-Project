@@ -2,6 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 // import Chart from "chart.js";
 import "./Calculator.css";
+// import { whileStatement } from "@babel/types";
 // import Footer from "../Footer/Footer";
 
 class Calculator extends React.Component {
@@ -19,13 +20,13 @@ class Calculator extends React.Component {
         datasets: [
           {
             label: "Bundle 1",
-            backgroundColor: "rgba(255,155,8, .2)",
+            backgroundColor: "rgba(255,0,0, .2)",
             data: [0, 45000]
           },
           {
             label: "Bundle 2",
-            backgroundColor: "rgba(255,155,8, .3)",
-            data: [0,14400]
+            backgroundColor: "rgba(225,0,0, .3)",
+            data: [0, 14400]
           },
           {
             label: "Bundle 3",
@@ -36,7 +37,7 @@ class Calculator extends React.Component {
       }
     };
   }
-//this.state.data.datasets[data]
+
   calculator = e => {
     let input = e.target.value;
     let x = 0;
@@ -56,44 +57,34 @@ class Calculator extends React.Component {
       }
     } while (input >= 2500);
     this.setState({
-      ...this.state,
       input,
       x,
       y,
       z,
-      // data: {
-      //   datasets: [
-      //     {
-      //       data: [x, y, z]
-      //     }
-      //   ]
-      // }
+      data: {
+        datasets: [
+          {
+            label: "Bundle 1",
+            backgroundColor: "rgba(255,0,0, .2)",
+            data: [0, (x *= 750 * 60)]
+          },
+          {
+            label: "Bundle 2",
+            backgroundColor: "rgba(225,0,0, .3)",
+            data: [0, (y *= 300 * 60)]
+          },
+          {
+            label: "Bundle 3",
+            backgroundColor: "rgba(248,77,77, 1)",
+            data: [0, (z *= 75 * 60)]
+          }
+        ]
+      }
     });
-
-    let yearValues = [],
-    bundleOne = 0,
-    bundleTwo = 0,
-    bundleThree = 0;
-
-  //? bundle 1 loop
-  for (let i = 0; i < 5; i++) {
-    let bOneValues = bundleOne + this.state.x * 750 * 60;
-    yearValues.push(bOneValues);
-  }
-  for (let j = 0; j < 5; j++) {
-    let bTwoValues = bundleTwo + this.state.y * 300 * 60;
-    yearValues.push(bTwoValues);
-  }
-  for (let k = 0; k < 5; k++) {
-    let bThreeValues = bundleThree + this.state.z * 75 * 60;
-    yearValues.push(bThreeValues);
-  }
-
   };
 
-
   render() {
-    console.log(this.state.data.datasets)
+    console.log(this.state);
 
     return (
       <div className="chart-page">
@@ -103,9 +94,9 @@ class Calculator extends React.Component {
           data={this.state}
           options={{
             title: {
-              
               display: true,
-              text: "Minimum return amount's per Bundle"
+              text: "Returns per bundle after 5 years",
+              fontColor: "black"
             },
             legend: {
               display: true,
@@ -118,30 +109,27 @@ class Calculator extends React.Component {
                     autoSkip: false,
                     beginAtZero: true,
                     steps: 10,
-                    stepSize: 5000,
-                    max: 50000,
                     fontColor: "black",
                     fontSize: 15
-                          }
-                        }
-                      ],
-                      xAxes: [
-                        {
-                          ticks: {
-                            fontSize: 10,
-                            beginAtZero: true,
-                            steps: 5,
-                            stepSize: 1,
-                            max: 16,
-                            fontColor: "black",
-                            data: this.state.label
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  ticks: {
+                    fontSize: 10,
+                    beginAtZero: true,
+                    steps: 5,
+                    stepSize: 1,
+                    max: 16,
+                    fontColor: "black",
+                    data: this.state.label
                   }
                 }
               ]
             }
           }}
-          data = {this.state.data}
-
+          data={this.state.data}
         />
         <br></br>
         <div>
@@ -149,29 +137,28 @@ class Calculator extends React.Component {
           <br></br>
           <br></br>
           {`Investment amount : `}
-          <input placeholder="$" onChange={e => this.calculator(e)} />
+          <input className='input' placeholder="$" onChange={e => this.calculator(e)} />
           <br></br>
           <br></br>
-          {/* <br></br> */}
-          <div>
+          <div className='package-display'>
             package 1 count: {`${this.state.x}`}
             <br></br>
             monthly return: {`${this.state.x * 750}`}
           </div>
           <br></br>
-          <div>
+          <div className='package-display'>
             package 2 count:{`${this.state.y}`}
             <br></br>
             monthly return: {`${this.state.y * 300}`}
           </div>
           <br></br>
-          <div>
+          <div className='package-display'>
             package 3 count: {`${this.state.z}`}
             <br></br>
             monthly return: {`${this.state.z * 75}`}
           </div>
           <br></br>
-          <div>
+          <div className='package-display'>
             TOTAL MONTHLY RETURN:{" "}
             {`${this.state.x * 750 + this.state.y * 300 + this.state.z * 75}`}
             {/* amount remainder: $

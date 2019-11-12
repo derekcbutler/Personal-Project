@@ -80,15 +80,21 @@ class Invest extends React.Component {
     // var REACT_APP_STRIPE_KEY = Stripe('pk_live_yPH3gVCkN6IOElI40SDM3bfu00J0T42rMa')
     return (
       <div id="body">
+        <br></br>
         <script src="https://js.stripe.com/v3/"></script>
-        <div>
+        <div className="all-inputs">
           <br></br>
-          Invest:
+          <h2>Invest:</h2>
+          {/* <br></br> */}
+          {/* <br></br> */}
+          <p>
+            *Watch email to receive a docusign within the next business day*
+          </p>
           <br></br>
           <br></br>
           <div className="invest-inputs">
-            <div>
-              {"First name: "}
+            <div className="input-lines">
+              <h4>{"First name: "}</h4>
               <input
                 placeholder="First name"
                 className="input-boxes"
@@ -97,8 +103,8 @@ class Invest extends React.Component {
                 onChange={e => this.handleChange(e)}
               />
             </div>
-            <div>
-              {"Last Name: "}
+            <div className="input-lines">
+              <h4>{"Last Name: "}</h4>
               <input
                 placeholder="Last name"
                 className="input-boxes"
@@ -107,8 +113,8 @@ class Invest extends React.Component {
                 onChange={e => this.handleChange(e)}
               />
             </div>
-            <div>
-              {"Phone Number: "}
+            <div className="input-lines">
+              <h4>{"Phone Number: "}</h4>
               <input
                 placeholder="Phone"
                 className="input-boxes"
@@ -117,8 +123,8 @@ class Invest extends React.Component {
                 onChange={e => this.handleChange(e)}
               />
             </div>
-            <div>
-              {"Email: "}
+            <div className="input-lines">
+              <h4>{"Email: "}</h4>
               <input
                 placeholder="email"
                 className="input-boxes"
@@ -127,8 +133,8 @@ class Invest extends React.Component {
                 onChange={e => this.handleChange(e)}
               />
             </div>
-            <div>
-              {"Amount: "}
+            <div className="input-lines">
+              <h4> {"Amount: "}</h4>
               <input
                 className="input-boxes"
                 name="amount"
@@ -137,9 +143,11 @@ class Invest extends React.Component {
                 type="number"
                 onChange={e => this.handleChange(e)}
               />
+                </div>
               <br></br>
 
-              <button onClick={this.submitButton}>
+              <button onClick={this.submitButton} className='pay'>
+                
                 <StripeCheckout
                   name="test"
                   stripeKey={process.env.REACT_APP_STRIPE_KEY}
@@ -155,7 +163,6 @@ class Invest extends React.Component {
                   // onClick={}
                 ></StripeCheckout>
               </button>
-            </div>
           </div>
         </div>
       </div>

@@ -3,15 +3,28 @@
     width: 100vw;
     font-size: 12px;
     border: black solid 1px;
-    background-color: wheat;
+    background-color: whitesmoke;
+    color: black;
     /* position: absolute; */
 }
 .chart{
     width: 80vw;
     height: 60vh;
     display: flex;
+    color: black;
+    background-color: black;
     
 }
 canvas {
-    height: 40vh !important
+    height: 40vh !important;
+    color: black;
+    /* background-color:; */
 }
+.input{
+    border: solid darkgray 2px;
+    border-radius: 5px;
+}
+/* .package-display{
+    border: solid darkgray 2px;
+    
+} */

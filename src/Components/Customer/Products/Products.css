@@ -1,19 +1,22 @@
 .full{
-    background-color: teal;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-content: center;
+    height: 180vh;
+    background-color: whitesmoke;
 }
 
 #body{
     width: 100vw;
-    height: 200vh;
+    height: 250vh;
     display: flex;
     justify-content: center;
     
 }
 .bundle{
-    border: solid black 2px;
+    border: solid gray .4px;
+    box-shadow: 3px 5px 3px 1px gray;
     border-radius: 12px;
     width: 94vw;
     margin-top: 30px;
@@ -30,9 +33,9 @@
     font-weight: 500;
 }
 .invest-button{
-    border: black solid 2px;
-    background-color: gray;
-    color: white;
+    box-shadow: 1px 3px 3px -1px gray;
+    background-color: whitesmoke;
+    color: black;
     border-radius: 12px;
     display: flex;
     float: right;
