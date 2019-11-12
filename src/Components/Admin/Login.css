@@ -5,4 +5,27 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: whitesmoke;
+}
+.input{
+ /* border: solid gray 2px; */
+ box-shadow: 1px 1px 1px 1px gray;
+}
+
+.login-button{
+box-shadow: 2px 2px 2px 2px black;
+border: none;
+border-radius: 10px;
+margin-top: 15px;
+background-color: #133954;
+color: whitesmoke;
+padding: 6px;
+width: 60px;
+font-weight: 800;
+font-size: smaller;
+}
+.title{
+    display: flex;
+    margin-bottom: 40px;
+    font-size: 20px;
 }

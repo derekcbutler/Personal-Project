@@ -24,7 +24,33 @@ canvas {
     border: solid darkgray 2px;
     border-radius: 5px;
 }
-/* .package-display{
-    border: solid darkgray 2px;
-    
-} */
+.package-display{
+    display: flex;
+    border: solid black 1px;
+    width: 30vw;
+    padding: 10px;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+.total-display{
+    display: flex;
+    border: solid black 1px;
+    width: 150px;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 20px;
+    font-size: large;
+
+}
+.whole-bottom{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bundle-boxes{
+    border: solid black 1px;
+    display: flex;
+    justify-items: left;
+}

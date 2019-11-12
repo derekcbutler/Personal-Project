@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../Footer/Footer";
 import "./Landing.css";
-import picture from "../../../serverPic.jpg";
+import picture from "../../../serverPic.jpeg";
 
 function Landing() {
   return (

@@ -23,7 +23,7 @@ class Login extends React.Component {
   };
 
   login() {
-    console.log("login:",this.state);
+    console.log("login:", this.state);
     axios
       .post("/api/login", {
         username: this.state.username,
@@ -41,13 +41,17 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-        username        <input
+        <div className='title'>{`CloudPayCheck`}</div>
+        username :{" "}
+        <input
+          className="input"
           value={this.state.username}
           name="username"
           onChange={e => this.handleInput(e)}
         />
-        password
+        password :
         <input
+          className="input"
           value={this.state.password}
           name="password"
           onChange={e => this.handleInput(e)}
@@ -71,7 +75,4 @@ const mapDispatchToProps = {
   login
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -20,17 +20,17 @@ class Calculator extends React.Component {
         datasets: [
           {
             label: "Bundle 1",
-            backgroundColor: "rgba(255,0,0, .2)",
+            backgroundColor: "rgba(46, 244, 195, .2)",
             data: [0, 45000]
           },
           {
             label: "Bundle 2",
-            backgroundColor: "rgba(225,0,0, .3)",
+            backgroundColor: "rgba(46,179,195, .3)",
             data: [0, 14400]
           },
           {
             label: "Bundle 3",
-            backgroundColor: "rgba(248,77,77, 1)",
+            backgroundColor: "rgba(19,57,124, 5)",
             data: [0, 4500]
           }
         ]
@@ -65,17 +65,17 @@ class Calculator extends React.Component {
         datasets: [
           {
             label: "Bundle 1",
-            backgroundColor: "rgba(255,0,0, .2)",
+            backgroundColor: "rgba(46, 244, 195, .2)",
             data: [0, (x *= 750 * 60)]
           },
           {
             label: "Bundle 2",
-            backgroundColor: "rgba(225,0,0, .3)",
+            backgroundColor: "rgba(46,179,195, .3)",
             data: [0, (y *= 300 * 60)]
           },
           {
             label: "Bundle 3",
-            backgroundColor: "rgba(248,77,77, 1)",
+            backgroundColor: "rgba(19,57,124, 5)",
             data: [0, (z *= 75 * 60)]
           }
         ]
@@ -88,7 +88,6 @@ class Calculator extends React.Component {
 
     return (
       <div className="chart-page">
-        **Investable amounts are in increments of $2,500**
         <Line
           className="chart"
           data={this.state}
@@ -136,33 +135,44 @@ class Calculator extends React.Component {
           RETURNS CALCULATOR
           <br></br>
           <br></br>
+          **Investable amounts are in increments of $2,500**
+          <br></br>
+          <br></br>
           {`Investment amount : `}
-          <input className='input' placeholder="$" onChange={e => this.calculator(e)} />
+          <input
+            className="input"
+            placeholder="$"
+            onChange={e => this.calculator(e)}
+          />
           <br></br>
           <br></br>
-          <div className='package-display'>
-            package 1 count: {`${this.state.x}`}
+          <div className='whole-bottom'>
+            <div bundle-boxes>
+              <div className="package-display">
+                Bundle 1 count: {`${this.state.x}`}
+                <br></br>
+                monthly return: {`${this.state.x * 750}`}
+              </div>
+              <br></br>
+              <div className="package-display">
+                Bundle 2 count:{`${this.state.y}`}
+                <br></br>
+                monthly return: {`${this.state.y * 300}`}
+              </div>
+              <br></br>
+              <div className="package-display">
+                Bundle 3 count: {`${this.state.z}`}
+                <br></br>
+                monthly return: {`${this.state.z * 75}`}
+              </div>
+            </div>
             <br></br>
-            monthly return: {`${this.state.x * 750}`}
-          </div>
-          <br></br>
-          <div className='package-display'>
-            package 2 count:{`${this.state.y}`}
-            <br></br>
-            monthly return: {`${this.state.y * 300}`}
-          </div>
-          <br></br>
-          <div className='package-display'>
-            package 3 count: {`${this.state.z}`}
-            <br></br>
-            monthly return: {`${this.state.z * 75}`}
-          </div>
-          <br></br>
-          <div className='package-display'>
-            TOTAL MONTHLY RETURN:{" "}
-            {`${this.state.x * 750 + this.state.y * 300 + this.state.z * 75}`}
-            {/* amount remainder: $
+            <div className="total-display">
+              TOTAL MONTHLY RETURN:{" "}
+              {`${this.state.x * 750 + this.state.y * 300 + this.state.z * 75}`}
+              {/* amount remainder: $
         {this.state.input} */}
+            </div>
           </div>
         </div>
         {/* <Footer /> */}
