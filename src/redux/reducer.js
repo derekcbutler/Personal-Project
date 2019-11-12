@@ -12,6 +12,7 @@ const LOGOUT = "LOGOUT";
 const LOGIN = "LOGIN";
 const GET_LEADS = 'GET_LEADS';
 const DELETE_LEADS = 'DELETE_LEADS';
+const EDIT_LEAD = 'EDIT-LEAD';
 
 export function getLeads() {
   console.log('hit')
@@ -21,6 +22,17 @@ export function getLeads() {
     
   return {
     type: GET_LEADS,
+    payload: leads
+  }
+}
+
+export function editLead() {
+  console.log('edit')
+  let leads = axios.put('/api/leads').then(res => {
+    return res.data
+  })
+  return {
+    type: EDIT_LEAD,
     payload: leads
   }
 }
@@ -72,6 +84,8 @@ export default function reducer(state = initialState, action) {
     case DELETE_LEADS + '_FULFILLED':
       console.log(payload)
         return { ...state, leads: payload };
+    case EDIT_LEAD + '_FULFILLED':
+      return { ...state, leads: payload };
     default:
       return state;
   }

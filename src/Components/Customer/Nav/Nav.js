@@ -19,9 +19,10 @@ const Nav = props => {
       {props.location.pathname === "/login" ? null : (
         <nav className="nav-bar">
           <div className="logo">
-            <Link to="/" className="logo">
-              Cloud Investments
-            </Link>
+            <button onClick={drop}><Link to="/" className="logo">
+              CloudPayCheck
+            </Link></button>
+            
           </div>
           <a className="icon">
             <i className="fa fa-bars" onClick={drop}></i>
@@ -29,21 +30,25 @@ const Nav = props => {
           <div className="myLinks">
             {menu ? (
               <nav className="menu-buttons">
-                <Link to="/calculator" className="menu-buttons">
+                <button onClick={drop}><Link to="/calculator" className="menu-buttons">
                   Calculator
-                </Link>
-                <Link to="/products" className="menu-buttons">
+                </Link></button>
+                
+                <button onClick={drop}><Link to="/products" className="menu-buttons">
                   Products
-                </Link>
-                <Link to="/invest" className="menu-buttons">
+                </Link></button>
+                
+                <button onClick={drop}><Link to="/invest" className="menu-buttons">
                   Invest
-                </Link>
+                </Link></button>
+                
                 {props.redux.reducer.user.loggedIn ? (
                   <div>
-                    <Link to="/leads" className="menu-buttons">
+                    <button onClick={drop}> <Link to="/leads" className="menu-buttons">
                       Leads
-                    </Link>
-                    <button onClick={props.logout}>Logout</button>
+                    </Link></button>
+                   
+                    <button className="logout" onClick={props.logout}>Logout</button>
                   </div>
                 ) : null}
               </nav>

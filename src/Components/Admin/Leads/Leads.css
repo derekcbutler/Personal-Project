@@ -1,9 +1,72 @@
-/* .newLead-input {
-    display: flex;
-    flex-direction: column;
-} */
-
-.leads-box{
-    border: solid 2px black;
-    justify-content: space-around;
+.leads-box {
+  border: solid 2px black;
+  justify-content: space-around;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+.newLead-input {
+  border: solid black 2px;
+  flex-direction: column;
+  font-weight: 800px;
+  height: 48vh;
+}
+.input-display {
+  display: flex;
+  justify-items: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+.inputs {
+  border: solid 1px black;
+  display: flex;
+  margin-left: 20px;
+  justify-content: space-around;
+  margin-top: 15px;
+  align-content: center;
+  padding: 5px;
+  border-radius: 8px;
+  /* float:right; */
+}
+.each-lead {
+  border: black solid 2px;
+  display: flex;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  align-content: center;
+  align-content: center;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.redux-button {
+  box-shadow: 2px 2px 2px 2px;
+  border: none;
+  border-radius: 5px;
+  background-color: #133954;
+  color: white;
+  padding: 1px;
+  width: 70px;
+}
+.buttons-box {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.submit {
+  margin-top: 10px;
+  background-color: #133954;
+  color: white;
+  box-shadow: 2px 2px 2px 2px;
+  border: none;
+  display: flex;
+  align-content: flex-end;
+  float: right;
+  margin-right: 30px;
+  padding: 4px;
+  width: 55px;
 }

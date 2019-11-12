@@ -2,26 +2,21 @@ import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { getLeads, deleteLead } from "../../../redux/reducer";
+import { getLeads, deleteLead, editLead } from "../../../redux/reducer";
+import EditLeads from './EditLeads';
 import "./Leads.css";
 
 class Leads extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leads: [],
-      name_first: "",
-      name_last: "",
-      phone: 0,
-      email: "",
-      lead_status: "",
-      notes: ""
+      leads: []
+      
     };
   }
 
   componentDidMount() {
-    this.props.getLeads()
-    
+    this.props.getLeads();
   }
 
   handleInput = e => {
@@ -55,10 +50,9 @@ class Leads extends React.Component {
       .catch(err => console.log(err));
   };
 
-
   render() {
     // console.log(this.props);
-    console.log(this.props.redux.reducer)
+    console.log(this.props.redux.reducer);
     let { leads } = this.props.redux.reducer;
     // console.log(leads);
     if (!this.props.redux.reducer.user.loggedIn) {
@@ -69,71 +63,80 @@ class Leads extends React.Component {
         <div className="newLead-input">
           New Lead:
           <br></br>
-          <input
-            placeholder="first name"
-            value={this.state.name_first}
-            name="name_first"
-            onChange={e => this.handleInput(e)}
-          />
-          <input
-            placeholder="last name"
-            value={this.state.name_last}
-            name="name_last"
-            onChange={e => this.handleInput(e)}
-          />
-          <input
-            placeholder="phone number"
-            value={this.state.phone}
-            name="phone"
-            onChange={e => this.handleInput(e)}
-          />
-          <input
-            placeholder="email"
-            value={this.state.email}
-            name="email"
-            onChange={e => this.handleInput(e)}
-          />
-          <input
-            placeholder=""
-            value={this.state.lead_status}
-            name="lead_status"
-            onChange={e => this.handleInput(e)}
-          />
-          <input
-            placeholder="notes"
-            value={this.state.notes}
-            name="notes"
-            onChange={e => this.handleInput(e)}
-          />
-          <button onClick={this.handleNewLead}>Submit</button>
-          {/* {this.state.status ? (
-            <div>
-              <div>Active</div>
-              <div>Inactive</div>
-              <div>Not Interested</div>
-              <div>Pending</div>
-            </div>
-          ) : null} */}
-          //! FINISH HERE
+          <div className="input-display">
+            First Name:
+            <input
+              className="inputs"
+              placeholder="John"
+              value={this.state.name_first}
+              name="name_first"
+              onChange={e => this.handleInput(e)}
+            />
+          </div>
+          <div className="input-display">
+            Last Name:
+            <input
+              className="inputs"
+              placeholder="Doe"
+              value={this.state.name_last}
+              name="name_last"
+              onChange={e => this.handleInput(e)}
+            />
+          </div>
+          <div className="input-display">
+            Phone Number:
+            <input
+              className="inputs"
+              placeholder="(000)-000-0000"
+              value={this.state.phone}
+              name="phone"
+              onChange={e => this.handleInput(e)}
+            />
+          </div>
+          <div className="input-display">
+            Email:
+            <input
+              className="inputs"
+              placeholder="JohnDoe@gmail.com"
+              value={this.state.email}
+              name="email"
+              onChange={e => this.handleInput(e)}
+            />
+          </div>
+          <div className="input-display">
+            Lead Status:
+            <input
+              className="inputs"
+              placeholder="Active"
+              value={this.state.lead_status}
+              name="lead_status"
+              onChange={e => this.handleInput(e)}
+            />
+          </div>
+          <div className="input-display">
+            Notes:{" "}
+            <input
+              className="inputs"
+              placeholder="notes"
+              value={this.state.notes}
+              name="notes"
+              onChange={e => this.handleInput(e)}
+            />
+          </div>
+          <button className="submit" onClick={this.handleNewLead}>
+            Submit
+          </button>
         </div>
         {leads[0] ? (
           <div className="leads-box">
             {this.props.redux.reducer.leads.map((e, i) => {
               return (
-                <div key={`hey ${i}`}>
-                  <div >
-                    {e.name_first}
-                    {e.name_last}
-                    {e.phone}
-                    {e.email}
-                    {e.lead_status}
-                    {e.notes}
-                 
-                  </div>
-                  <nav>
-                    <button>Edit Lead</button>
-                    <button onClick={() => this.props.deleteLead(e.lead_id)}>Delete Lead</button>
-                  </nav>
+                <div>
+                  < EditLeads 
+                  i={i}
+                  e={e}
+                  key={i + 'component'} />
+                  
                 </div>
               );
             })}
@@ -150,7 +153,4 @@ const mapStateToProps = state => {
   };
 };
 //the empty {} below works as mapDispatchToProps
-export default connect(
-  mapStateToProps,
-  { getLeads, deleteLead }
-)(Leads);
+export default connect(mapStateToProps, { getLeads, deleteLead, editLead })(Leads);
