@@ -14,6 +14,9 @@ massive(CONNECTION_STRING).then(db => {
   console.log("db connected");
 });
 
+//?redirects to the build folder
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(
   session({
     resave: false,

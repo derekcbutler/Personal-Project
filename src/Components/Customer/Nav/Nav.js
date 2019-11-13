@@ -19,7 +19,7 @@ const Nav = props => {
       {props.location.pathname === "/login" ? null : (
         <nav className="nav-bar">
           <div className="logo">
-            <button onClick={drop}><Link to="/" className="logo">
+            <button ><Link to="/" className="logo">
               CloudPayCheck
             </Link></button>
             
