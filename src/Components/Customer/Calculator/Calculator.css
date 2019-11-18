@@ -1,3 +1,4 @@
+@media (max-width: 800px){
 .chart-page{
     height: 90vh;
     width: 100vw;
@@ -54,4 +55,18 @@ canvas {
     border: solid black 1px;
     display: flex;
     justify-items: left;
+}
+}
+@media (min-width: 801px){
+
+    canvas {
+        margin-top: 30px;
+        width: 80vw !important;
+        height: 60vh !important;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 150px;
+}
 }

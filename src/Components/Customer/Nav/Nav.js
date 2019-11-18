@@ -24,6 +24,7 @@ const Nav = props => {
             </Link></button>
             
           </div>
+          
           <a className="icon">
             <i className="fa fa-bars" onClick={drop}></i>
           </a>
@@ -50,9 +51,9 @@ const Nav = props => {
                    
                     <button className="logout" onClick={props.logout}>Logout</button>
                   </div>
-                ) : null}
+                ) : null }
               </nav>
-            ) : null}
+            ) : menu }
           </div>
         </nav>
       )}

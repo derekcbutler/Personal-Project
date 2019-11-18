@@ -1,4 +1,5 @@
-.nav-bar{
+@media (max-width: 800px) {
+  .nav-bar {
     width: 100%;
     height: 10vh;
     background-color: #133954;
@@ -6,18 +7,18 @@
     justify-content: space-between;
     align-items: center;
     /* margin-bottom: 10px; */
-}
-.logo{
+  }
+  .logo {
     margin-left: 20px;
     text-decoration: none;
-    color:white;
+    color: white;
     font-weight: 500;
     font-size: 20px;
-    font-family: 'Josefin Sans', sans-serif;
-}
-.menu-buttons{
+    font-family: "Josefin Sans", sans-serif;
+  }
+  .menu-buttons {
     text-decoration: none;
-    color:white;
+    color: white;
     display: flex;
     margin-right: 20px;
     flex-direction: column;
@@ -26,8 +27,8 @@
     /* float: right; */
     align-items: center;
     /* margin-top: 10px; */
-}
-.logout{
+  }
+  .logout {
     border: none;
     background-color: transparent;
     color: white;
@@ -35,8 +36,8 @@
     text-decoration: none;
     align-items: center;
     align-content: center;
-}
-.myLinks{
+  }
+  .myLinks {
     margin-top: 28px;
     display: flex;
     flex-direction: column;
@@ -45,14 +46,75 @@
     position: relative;
     right: -5vw;
     top: 10vh;
-
-    
-}
-.icon{
-
+  }
+  .icon {
     color: white;
     display: flex;
     right: 10vw;
     flex-direction: flex-end;
     position: absolute;
+  }
+}
+@media (min-width: 801px) {
+  .nav-bar {
+    width: 100%;
+    height: 10vh;
+    background-color: #133954;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 10px; */
+  }
+  .logo {
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #133954;
+    text-decoration: none;
+  }
+  .menu-buttons {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    margin-right: 60px;
+    font-size: large;
+    margin-top: -110px;
+    /* flex-direction:; */
+    /* background-color: #133954; */
+    /* padding: 5px 10px; */
+    /* float: right; */
+    /* align-items: center; */
+    /* margin-top: 10px; */
+  }
+  .logout {
+    border: none;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    align-content: center;
+  }
+  .myLinks {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    right: -5vw;
+    top: 10vh;
+  }
+  .icon {
+    display: none;
+  }
+
+  button {
+    background-color: #133954;
+    text-decoration: none;
+    border: none;
+    margin-top: 0
+  }
 }
