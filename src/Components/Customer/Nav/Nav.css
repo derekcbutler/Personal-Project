@@ -1,3 +1,5 @@
+
+
 @media (max-width: 800px) {
   .nav-bar {
     width: 100%;
@@ -46,6 +48,7 @@
     position: relative;
     right: -5vw;
     top: 10vh;
+    z-index: 5;
   }
   .icon {
     color: white;
@@ -98,6 +101,8 @@
     align-content: center;
   }
   .myLinks {
+    width: 40vw;
+    height: 20px;
     margin-top: 28px;
     display: flex;
     flex-direction: column;
@@ -112,7 +117,7 @@
   }
 
   button {
-    background-color: #133954;
+    background-color: transparent;
     text-decoration: none;
     border: none;
     margin-top: 0

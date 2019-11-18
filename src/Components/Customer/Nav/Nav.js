@@ -5,55 +5,67 @@ import { logout } from "../../../redux/reducer";
 import "./Nav.css";
 
 const Nav = props => {
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(true);
 
   const drop = () => {
     setMenu(!menu);
   };
-
-  console.log("props", props);
-  console.log(props.redux.reducer.user.loggedIn);
-  // console.log(props)
+//!Nav-bar breaks on everything other than the home page
+  // console.log("props", props);
+  // console.log(props.redux.reducer.user.loggedIn);
+  console.log(setMenu);
   return (
     <div>
       {props.location.pathname === "/login" ? null : (
         <nav className="nav-bar">
           <div className="logo">
-            <button ><Link to="/" className="logo">
-              CloudPayCheck
-            </Link></button>
-            
+            <button>
+              <Link to="/" className="logo">
+                CloudPayCheck
+              </Link>
+            </button>
           </div>
-          
+
           <a className="icon">
             <i className="fa fa-bars" onClick={drop}></i>
           </a>
           <div className="myLinks">
             {menu ? (
               <nav className="menu-buttons">
-                <button onClick={drop}><Link to="/calculator" className="menu-buttons">
-                  Calculator
-                </Link></button>
-                
-                <button onClick={drop}><Link to="/products" className="menu-buttons">
-                  Products
-                </Link></button>
-                
-                <button onClick={drop}><Link to="/invest" className="menu-buttons">
-                  Invest
-                </Link></button>
-                
+                <button onClick={drop}>
+                  <Link to="/calculator" className="menu-buttons">
+                    Calculator
+                  </Link>
+                </button>
+
+                <button onClick={drop}>
+                  <Link to="/products" className="menu-buttons">
+                    Products
+                  </Link>
+                </button>
+
+                <button onClick={drop}>
+                  <Link to="/invest" className="menu-buttons">
+                    Invest
+                  </Link>
+                </button>
+
                 {props.redux.reducer.user.loggedIn ? (
                   <div>
-                    <button onClick={drop}> <Link to="/leads" className="menu-buttons">
-                      Leads
-                    </Link></button>
-                   
-                    <button className="logout" onClick={props.logout}>Logout</button>
+                    <button onClick={drop}>
+                      {" "}
+                      <Link to="/leads" className="menu-buttons">
+                        Leads
+                      </Link>
+                    </button>
+
+                    <button className="logout" onClick={props.logout}>
+                      Logout
+                    </button>
                   </div>
-                ) : null }
+                ) : null}
               </nav>
-            ) : menu }
+            ) : null}
           </div>
         </nav>
       )}
@@ -66,9 +78,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { logout }
-  )(Nav)
-);
+export default withRouter(connect(mapStateToProps, { logout })(Nav));

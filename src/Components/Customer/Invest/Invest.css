@@ -1,36 +1,73 @@
-#body{
+/* @media (max-width:800) { */
+  #body {
     width: 100vw;
     height: 90vh;
     background-color: whitesmoke;
     color: black;
-}
-.invest-inputs{
+  }
+  .invest-inputs {
     height: 30vh;
     width: 70vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
-}
-.input-lines{
+  }
+  .input-lines {
     display: flex;
     height: 30px;
     align-items: center;
     justify-content: space-around;
     padding: 5px;
-}
+  }
 
-.input-boxes{
+  .input-boxes {
     border: black solid 1px;
     border-radius: 4px;
     margin-right: 0;
-}
-.submit{
+  }
+  .submit {
     border: black solid 1px;
     border-radius: 12px;
-}
-.pay{
+  }
+  .pay {
     display: flex;
+  }
+/* } */
 
+/* @media( min-width: 801){
+    #body {
+        width: 100vw;
+        height: 90vh;
+        background-color: whitesmoke;
+        color: black;
+      }
+      .invest-inputs {
+        height: 30vh;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+      }
+      .input-lines {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        justify-content: space-around;
+        padding: 5px;
+      }
     
-}
+      .input-boxes {
+        border: black solid 1px;
+        border-radius: 4px;
+        margin-right: 0;
+      }
+      .submit {
+        border: black solid 1px;
+        border-radius: 12px;
+      }
+      .pay {
+        display: flex;
+      }
+} */

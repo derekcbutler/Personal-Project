@@ -95,11 +95,13 @@ class Calculator extends React.Component {
             title: {
               display: true,
               text: "Returns per bundle after 5 years",
+              fontSize: 20,
               fontColor: "black"
             },
             legend: {
               display: true,
-              position: "right"
+              position: "right",
+              fontSize: 20
             },
             scales: {
               yAxes: [
