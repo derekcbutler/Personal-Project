@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getLeads, deleteLead, editLead } from "../../../redux/reducer";
-import EditLeads from './EditLeads';
+import EditLeads from "./EditLeads";
 import "./Leads.css";
 
 class Leads extends React.Component {
@@ -11,7 +11,6 @@ class Leads extends React.Component {
     super(props);
     this.state = {
       leads: []
-      
     };
   }
 
@@ -132,11 +131,13 @@ class Leads extends React.Component {
             {this.props.redux.reducer.leads.map((e, i) => {
               return (
                 <div>
-                  < EditLeads 
-                  i={i}
-                  e={e}
-                  key={i + 'component'} />
-                  
+                  <EditLeads
+                    i={i}
+                    e={e}
+                    key={i + "component"}
+                    editLead={this.props.editLead}
+                    deleteLead={this.props.deleteLead}
+                  />
                 </div>
               );
             })}
@@ -153,4 +154,6 @@ const mapStateToProps = state => {
   };
 };
 //the empty {} below works as mapDispatchToProps
-export default connect(mapStateToProps, { getLeads, deleteLead, editLead })(Leads);
+export default connect(mapStateToProps, { getLeads, deleteLead, editLead })(
+  Leads
+);

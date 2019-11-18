@@ -46,8 +46,6 @@ module.exports = {
 
   getLeads: async(req, res) => {
     const db = req.app.get('db');
-    console.log('hit')
-    
     let leads = await db.get_leads();
     // console.log(leads)
     res.status(200).send(leads)
@@ -67,8 +65,10 @@ module.exports = {
     const db = req.app.get("db");
     const { id } = req.params;
     const { name_first, name_last, phone, email, lead_status, notes } = req.body;
+    console.log(id, name_first, name_last, phone, email, lead_status, notes)
     db.edit_lead([name_first, name_last, phone, email, lead_status, notes, id]).then(
       data => {
+        // console.log( editLead )
         res.status(200).send(data);
       }
     );

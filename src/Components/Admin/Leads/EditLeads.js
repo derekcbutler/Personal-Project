@@ -46,7 +46,16 @@ class editLeads extends React.Component {
   };
 
   render() {
+    // console.log(this.props.deleteLead)
+    // console.log(this.props.editLead);
     const { e, i } = this.props;
+    // console.log(e)
+    const {  name_first,
+      name_last,
+      phone,
+      email,
+      lead_status,
+      notes} = this.state
     return (
       <div>
         {this.state.editing ? (
@@ -106,7 +115,19 @@ class editLeads extends React.Component {
                   onChange={e => this.handleInput(e)}
                 />
               </div>
-              <button onClick={() => this.props.editLead(e.lead_id)}>
+              <button
+                onClick={() =>
+                  this.props.editLead(
+                    e.lead_id,
+                    name_first,
+                    name_last,
+                    phone,
+                    email,
+                    lead_status,
+                    notes
+                  )
+                }
+              >
                 save changes
               </button>
             </div>

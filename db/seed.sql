@@ -25,3 +25,6 @@ CREATE TABLE admin(
     admin_password VARCHAR(100),
     admin_email TEXT
 );
+
+select * from leads full join selected_bundle on selected_bundle.lead_id = leads.lead_id 
+full join bundle on bundle.bundle_id = selected_bundle.bundle_id where leads.lead_id = $1;

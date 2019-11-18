@@ -15,7 +15,7 @@ const DELETE_LEADS = 'DELETE_LEADS';
 const EDIT_LEAD = 'EDIT-LEAD';
 
 export function getLeads() {
-  console.log('hit')
+  // console.log('hit')
   let leads = axios.get('/api/leads').then(res => {
     console.log(res)
     return res.data})
@@ -26,9 +26,10 @@ export function getLeads() {
   }
 }
 
-export function editLead() {
-  console.log('edit')
-  let leads = axios.put('/api/leads').then(res => {
+export function editLead(id, name_first, name_last, phone, email, lead_status, notes) {
+  console.log(id, name_first, name_last, phone, email, lead_status, notes)
+  // console.log('edit', id)
+  let leads = axios.put(`/api/leads/${id}`, {name_first, name_last, phone, email, lead_status, notes}).then(res => {
     return res.data
   })
   return {
@@ -61,7 +62,7 @@ export const login = () => {
 
 export const deleteLead = (id) => {
   let newLoad = axios.delete(`/api/leads/${id}`).then(res => res.data)
-  console.log(newLoad)
+  // console.log(newLoad)
   return {
     type: DELETE_LEADS,
     payload: newLoad
