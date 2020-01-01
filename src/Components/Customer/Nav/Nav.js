@@ -10,18 +10,17 @@ const Nav = props => {
   const drop = () => {
     setMenu(!menu);
   };
-//!Nav-bar breaks on everything other than the home page
   // console.log("props", props);
   // console.log(props.redux.reducer.user.loggedIn);
   console.log(setMenu);
   return (
-    <div>
+    <div className="header">
       {props.location.pathname === "/login" ? null : (
         <nav className="nav-bar">
           <div className="logo">
             <button>
               <Link to="/" className="logo">
-                CloudPayCheck
+                CLOUD PAY CHECKS
               </Link>
             </button>
           </div>
@@ -48,6 +47,14 @@ const Nav = props => {
                   <Link to="/invest" className="menu-buttons">
                     Invest
                   </Link>
+                </button>
+
+                <button onClick={drop}>
+                  <Link className="menu-buttons">Financing</Link>
+                </button>
+
+                <button onClick={drop}>
+                  <Link className="menu-buttons">Contact Us</Link>
                 </button>
 
                 {props.redux.reducer.user.loggedIn ? (

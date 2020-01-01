@@ -1,49 +1,59 @@
-.full{
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 180vh;
-    background-color: whitesmoke;
-    font-family: 'Big Shoulders Text', cursive;
+.full {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 190vh;
+  background-color: whitesmoke;
+  font-family: "Big Shoulders Text", cursive;
 }
 
-#body{
-    width: 100vw;
-    height: 250vh;
+#body {
+  width: 100vw;
+  height: 250vh;
+  display: flex;
+  justify-content: center;
+}
+/* .bundle1{
     display: flex;
-    justify-content: center;
-    
+} */
+.bundle {
+  border: solid gray 0.4px;
+  box-shadow: 3px 5px 3px 1px gray;
+  border-radius: 12px;
+  width: 94vw;
+  margin-top: 30px;
+  padding: 5px 0 39px 0;
+  text-decoration: none;
+  background-color: transparent;
+  font-family: "Josefin Sans", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.bundle{
-    border: solid gray .4px;
-    box-shadow: 3px 5px 3px 1px gray;
-    border-radius: 12px;
-    width: 94vw;
-    margin-top: 30px;
-    padding: 5px 0 39px 0;
-    text-decoration: none;
-    background-color: transparent;
-    font-family: 'Josefin Sans', sans-serif;
+.returns {
+  font-size: 22px;
+  font-weight: 600;
 }
-.returns{
-    font-size: 22px;
-    font-weight: 600;
+.italics {
+  font-style: italic;
+  font-weight: 500;
 }
-.italics{
-    font-style: italic;
-    font-weight: 500;
+.invest-button {
+  box-shadow: 1px 3px 3px -1px gray;
+  background-color: white;
+  color: black;
+  border-radius: 12px;
+  text-decoration: none;
+  padding: 9px;
+  font-size: 20px;
+  margin-top: 40px;
 }
-.invest-button{
-    box-shadow: 1px 3px 3px -1px gray;
-    background-color: whitesmoke;
-    color: black;
-    border-radius: 12px;
-    display: flex;
-    float: right;
-    margin-right: 10px;
-    justify-content: flex-end;
-    text-decoration: none;
-    padding: 7px;
-    font-size: 16px;
+.first-bundle {
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+.bundle1img{
+    width: 450px !important;
+    height: 450px !important;
 }

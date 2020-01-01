@@ -1,4 +1,7 @@
+.header {
+  width: 100vw;
 
+}
 
 @media (max-width: 800px) {
   .nav-bar {
@@ -22,12 +25,13 @@
     text-decoration: none;
     color: white;
     display: flex;
-    margin-right: 20px;
+    margin-right: 15px;
     flex-direction: column;
     background-color: #133954;
     padding: 5px 10px;
     /* float: right; */
     align-items: center;
+    /* width: 40px; */
     /* margin-top: 10px; */
   }
   .logout {
@@ -49,6 +53,7 @@
     right: -5vw;
     top: 10vh;
     z-index: 5;
+    margin-right: 15px;
   }
   .icon {
     color: white;
@@ -60,7 +65,7 @@
 }
 @media (min-width: 801px) {
   .nav-bar {
-    width: 100%;
+    width: 100vw;
     height: 10vh;
     background-color: #133954;
     display: flex;
@@ -69,13 +74,14 @@
     /* margin-bottom: 10px; */
   }
   .logo {
-    margin-left: 20px;
+    margin-left: 30px;
     color: white;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 40px;
     font-family: "Josefin Sans", sans-serif;
     background-color: #133954;
     text-decoration: none;
+    margin-top: 16px;
   }
   .menu-buttons {
     text-decoration: none;
@@ -84,12 +90,7 @@
     margin-right: 60px;
     font-size: large;
     margin-top: -110px;
-    /* flex-direction:; */
-    /* background-color: #133954; */
-    /* padding: 5px 10px; */
-    /* float: right; */
-    /* align-items: center; */
-    /* margin-top: 10px; */
+  
   }
   .logout {
     border: none;
@@ -109,7 +110,7 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    right: -5vw;
+    /* right: -5vw; */
     top: 10vh;
   }
   .icon {

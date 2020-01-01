@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className='footer-box'>
       <div className="footer">
-        Copyright © 2019 Verve Enterprises. 
+        Copyright © 2019 cloudpaychecks.com . 
         <br></br>
         All rights reserved.
       </div>
