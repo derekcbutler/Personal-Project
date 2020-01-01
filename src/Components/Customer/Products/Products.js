@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 
 function Products() {
   return (
+    <>
     <div className="full">
       <body id="body">
         <section>
@@ -70,8 +71,9 @@ function Products() {
           </div>
         </section>
       </body>
-      {/* <Footer /> */}
     </div>
+    <Footer />
+    </>
   );
 }
 export default withRouter(Products);
