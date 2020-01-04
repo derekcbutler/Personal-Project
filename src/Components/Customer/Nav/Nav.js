@@ -31,29 +31,25 @@ const Nav = props => {
           <div className="myLinks">
             {menu ? (
               <nav className="menu-buttons">
-                <button onClick={drop}>
+                <button >
                   <Link to="/calculator" className="menu-buttons">
                     Calculator
                   </Link>
                 </button>
 
-                <button onClick={drop}>
+                {/* <button onClick={drop}>
                   <Link to="/products" className="menu-buttons">
                     Products
                   </Link>
-                </button>
+                </button> */}
 
-                <button onClick={drop}>
+                <button >
                   <Link to="/invest" className="menu-buttons">
                     Invest
                   </Link>
                 </button>
 
-                <button onClick={drop}>
-                  <Link className="menu-buttons">Financing</Link>
-                </button>
-
-                <button onClick={drop}>
+                <button >
                   <Link className="menu-buttons">Contact Us</Link>
                 </button>
 

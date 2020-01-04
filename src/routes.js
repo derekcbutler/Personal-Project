@@ -12,7 +12,7 @@ export default (
     <Switch>
         <Route exact path = '/' component={Landing} />
         <Route path = '/calculator' component={Calculator} />
-        <Route path = '/products' component={Products} />
+        {/* <Route path = '/products' component={Products} /> */}
         <Route path = '/login' component={Login} />
         <Route path = '/leads' component={Leads} />
         <Route path = '/invest' component={Invest} />

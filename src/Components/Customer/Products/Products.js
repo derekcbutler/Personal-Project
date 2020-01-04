@@ -6,6 +6,10 @@ import bundle2img from "../../../images/bundle2img.jpg";
 import bundle3img from "../../../images/bundle3img.jpg";
 import Footer from "../Footer/Footer";
 
+
+//!THIS PAGE IS NO LONGER USED DUE TO PRODUCT MONTHLY RETURNS BECOMING GENERALIZED--------------------------------------
+
+
 function Products() {
   return (
     <>

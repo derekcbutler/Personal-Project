@@ -8,7 +8,6 @@ function Landing() {
   return (
     <div className="body">
       <div className='page'>
-        <h2 className='endurosol'>Proud contractor of EnduroSol®</h2>
         <img id="serverPic" src={picture} />
         <a className="text">
           Ever wanted passive income? A real paycheck that comes every month

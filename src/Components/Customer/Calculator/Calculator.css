@@ -69,4 +69,7 @@ canvas {
         justify-content: center;
         margin-left: 15vw;
 }
+.total-display{
+    margin-bottom: 50px;
+}
 }
