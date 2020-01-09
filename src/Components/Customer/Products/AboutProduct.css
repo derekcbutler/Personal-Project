@@ -1,0 +1,23 @@
+.page{
+    background-color: whitesmoke;
+    height: 200vh;
+    width: 100vw;
+    display: flex;
+}
+.narrative {
+    width: 80vw;
+    height: 90vh;
+    margin-top: 40px;
+    font-family: "Big Shoulders Text", cursive;
+    font-size: 22px;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+#cash-bills {
+    height: 30vh;  
+    margin-left: 100px; 
+    float: right;
+    margin-top: 30px;
+    
+}

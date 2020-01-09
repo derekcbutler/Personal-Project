@@ -37,6 +37,18 @@ const Nav = props => {
                   </Link>
                 </button>
 
+                <button>
+                  <Link to='/about-product' className="menu-buttons">
+                    About
+                  </Link>
+                </button>
+
+                <button>
+                  <Link className="menu-buttons">
+                  FAQ(coming soon)
+                  </Link>
+                </button>
+
                 {/* <button onClick={drop}>
                   <Link to="/products" className="menu-buttons">
                     Products
