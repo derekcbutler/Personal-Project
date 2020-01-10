@@ -57,13 +57,13 @@ const Nav = props => {
 
                 <button >
                   <Link to="/invest" className="menu-buttons">
-                    Invest
+                  Contact Us
                   </Link>
                 </button>
 
-                <button >
+                {/* <button >
                   <Link className="menu-buttons">Contact Us</Link>
-                </button>
+                </button> */}
 
                 {props.redux.reducer.user.loggedIn ? (
                   <div>

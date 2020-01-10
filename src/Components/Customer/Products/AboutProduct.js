@@ -41,7 +41,7 @@ function AboutProduct() {
         years guaranteed and backed by major insurance companies? So basically,
         you double your money in 60 months and on top of that, what if that same
         investment also returned your entire principal back to you at the end of
-        10 years? Sound too good to be true? keep reading...
+        10 years? Sound too good to be true? Keep reading...
         <br></br>
         What if that same investment could improve your monthly cash flow,
         starting next month to the tune of $450 per month? Would that help your

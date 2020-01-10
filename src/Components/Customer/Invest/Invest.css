@@ -4,10 +4,14 @@
     height: 90vh;
     background-color: whitesmoke;
     color: black;
+    /* display: inline; */
+  }
+  .all-inputs{
+    /* width: 550px; */
   }
   .invest-inputs {
-    height: 30vh;
-    width: 70vw;
+    height: 50vh;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -15,7 +19,7 @@
   }
   .input-lines {
     display: flex;
-    height: 30px;
+    height: 50px;
     align-items: center;
     justify-content: space-around;
     padding: 5px;
@@ -25,13 +29,33 @@
     border: black solid 1px;
     border-radius: 4px;
     margin-right: 0;
+    height: 25px;
+    width: 160px;
+    margin-left: 20px;
   }
-  .submit {
+  /* .submit {
     border: black solid 1px;
     border-radius: 12px;
-  }
+  } */
   .pay {
     display: flex;
+    background-color: white;
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: large;
+  }
+  #contact-info{
+    display: flex;
+  }
+
+  .text{
+    display: flex;
+    align-items: flex-end;
+    /* float: left; */
+    /* width: 100vw; */
+    
   }
 /* } */
 
