@@ -29,6 +29,7 @@
     flex-direction: column;
     background-color: #133954;
     padding: 5px 10px;
+    /* width: 100px; */
     /* float: right; */
     align-items: center;
     /* width: 40px; */
@@ -71,26 +72,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin-bottom: 10px; */
+    /* z-index: 5vh; */
+    /* margin-bottom: 100vh; */
+  }
+  .enduro-logo{
+    width: auto; 
+    height: 7vh;
+    margin-right: 20px;
   }
   .logo {
-    margin-left: 30px;
+    margin-left: 20px;
     color: white;
     font-weight: 600;
     font-size: 40px;
     font-family: "Josefin Sans", sans-serif;
     background-color: #133954;
     text-decoration: none;
-    margin-top: 16px;
+    margin-top: 10px;
   }
   .menu-buttons {
     text-decoration: none;
     color: white;
     display: flex;
-    margin-right: 60px;
+    margin-right: 40px;
     font-size: large;
-    margin-top: -110px;
+    margin-top: -130px;
+    /* width: 20px; */
   
+  }
+  .menu-buttons:hover{
+    color: #00FF00;
   }
   .logout {
     border: none;
@@ -102,7 +113,7 @@
     align-content: center;
   }
   .myLinks {
-    width: 40vw;
+    width: 50vw;
     height: 20px;
     margin-top: 28px;
     display: flex;

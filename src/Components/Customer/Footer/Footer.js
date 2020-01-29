@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className='footer-box'>
       <div className="footer">
-        Copyright © 2019 cloudpaychecks.com . 
+        © 2019 Cloud Cash Flow LLC.
         <br></br>
         All rights reserved.
       </div>

@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../../../redux/reducer";
 import "./Nav.css";
+import logo from '../../../images/ENDUROLogo.png'
 
 const Nav = props => {
   const [menu, setMenu] = useState(true);
@@ -20,6 +21,7 @@ const Nav = props => {
           <div className="logo">
             <button>
               <Link to="/" className="logo">
+                {/* <img className='enduro-logo' src={logo}/> */}
                 CLOUD PAY CHECKS
               </Link>
             </button>
@@ -46,6 +48,12 @@ const Nav = props => {
                 <button>
                   <Link className="menu-buttons">
                   FAQ(coming soon)
+                  </Link>
+                </button>
+
+                <button>
+                  <Link className="menu-buttons">
+                  Compare Investment(coming soon)
                   </Link>
                 </button>
 

@@ -1,69 +1,85 @@
 import React from "react";
 import Footer from "../Footer/Footer";
 import "./Landing.css";
-// import picture from "../../../serverPic.jpeg";
-import picture from "../../../images/serverPic.jpeg";
+import { Link } from "react-router-dom";
+import server from "../../../images/serverRoom.jpg";
+import enduroLogo from "../../../images/ENDUROLogo.png";
 
 function Landing() {
   return (
     <div className="body">
-      <div className='page'>
-        <img id="serverPic" src={picture} />
-        <a className="text">
-          Ever wanted passive income? A real paycheck that comes every month
-          without you having to work for it? Ever wanted to collect rent each
-          month from a steady source like real estate but you didn't have the
-          cash or credit plus you didn't want to deal with tenants, clogged
-          toilets or water heaters going out? What if there was a Virtual Real
-          Estate? A product that you could buy and lease out that paid you a
-          generous, steady paycheck each and every month with no risk and no
-          landlord hassles? What if that product was in the booming field of
-          block chain technology but without all the risk or volatility of
-          Bitcoin and others. What if I told you that you could earn 5% per
-          month, (see package explanation), on your product each month, that
-          your purchase was tax deductible*, that your 5 year lease contract was
-          backed by a multi-million dollar hedge fund and above all else your
-          principal was guaranteed by a major insurance company through its
-          Total Protection Plus program? We are talking about a $15,000 purchase
-          of a guaranteed product that will pay you $750 per month in passive
-          income lease payments for 5 years! All you have to do is go to the
-          mailbox and get your check each month! Want more than $750? How much
-          more? You just purchase more Enduro servers and collect $1,500,
-          $4,500, $7,500 or more! You decide. Don't have any savings? We even
-          have a great solution for you Millennials and others. Just click on
-          the No Money Button at the top of the page for more information. Oh,
-          and the icing on the cake is that at the end of the term, in addition
-          to the lease payments, basically tripling your money, you can also
-          receive all of your original investment back too! Would you be
-          interested in hearing a little more about that too? Keep reading....
-          We live in turbulent economic times. You cannot pick up a newspaper or
-          watch the news without hearing about some kind of financial risk.
-          Stock market at an all time high. But who can forget 2008? Real estate
-          market in another bubble? The signs are all around us that there will
-          be another correction sometime soon. Put your money in the bank to
-          earn a measly 1-2%? That does not even keep pace with the most
-          conservative figures of inflation! What is a person supposed to do?
-          Take a few moments to review the Enduro Solution. It is the most
-          amazing cash flow generating product whose time has come and is
-          perfectly poised to the best investment of the 21st century. But we
-          should not call it an investment because that implies that there is
-          some risk. Some down side. But with the Enduro Solution the risk has
-          been eliminated and the downside erased. How? Please review the
-          Overview tab. But in a nutshell: You purchase an Enduro Server
-          package(s) Your server is then automatically leased back to Enduro to
-          do its data mining and data storage functions. You receive a check
-          every month for 5 years basically tripling your money. At the end of
-          that term the server is worn out and basically you are done, unless of
-          course you continue to buy more servers. The return is 5% per month so
-          there is no better place to put your hard earned money. You fill out
-          the form to request the return of your original purchase price from
-          the insurance company. You can get 33% back at the end of the 5 years
-          or the whole 100% back after a total of 10 years. Either way this
-          icing on the cake should not be ignored.
-        </a>
+      <div className="page">
+        <div className="image-stack">
+          <img id="serverPic" src={server} />
+
+        </div>
+        <div id="up-pic">
+          <img id="enduroLogo" src={enduroLogo} />
+          <br></br>
+          <h2>THE FUTURE AT YOUR FINGERTIPS</h2>
+        </div>
+
+        {/* <img id="serverPic" /> */}
+        <br></br>
+        <section className="text">
+          We live in financially challenging times. You've seen the headlines
+          about the huge number of Americans who are not sure that they will
+          have enough money to retire or pay for their children's education.
+          <br></br>
+          According to a recent study by TransAmerica, the median retirement
+          savings for American workers is right about $50,000. Not very much
+          when you consider that the average family can spend that one year. In
+          addition to that, 59% of Americans worry about money and they
+          especially worry about paying for retirement and college for their
+          kids. We are also told to invest for the future. But with current
+          stock markets at record highs, along with the real estate market too,
+          one might tend to be a bit concerned. Other options? Precious metals
+          is a good way to preserve your current wealth but if you don't have
+          much, you can't protect much. Insurance annuities may seem like an
+          option but so many of those have tons of hidden costs and loopholes.
+          Savings accounts and CDs have been paying nearly 0% interest for the
+          past decade plus and we all know that inflation is NOT 0% during that
+          time. So what is a person supposed to do? Not much until now....
+          <br></br> What if there was something that would pay you a contracted
+          lease payment of 3% per month* for 5 years guaranteed and backed by
+          major insurance companies? Basically, you almost double your money in
+          5 years, but on top of that, what if that same opportunity also
+          returned your entire principal back to you at the end of 10 years?
+          Sound too good to be true? Keep reading.... For example; If you could
+          receive an extra $450 per month, would that help your current
+          lifestyle? What could you use that money for? Pay down your mortgage?
+          Pay off your car, credit cards or medical bills? You could donate more
+          to charity or put it towards your kids education. The options are
+          endless. <>Haven't heard of this opportunity before?</> That is
+          because until October of 2019 it did not exist. It is a new hybrid
+          creation due to the insatiable demand for more expensive data
+          technology assets combined with the guarantee of the Total Product
+          Protection Insurance program. This is genius! <br></br> Major
+          industries like the rental car business and heavy equipment operators
+          have utilized sale and lease back programs for decades. Do you think
+          car rental companies like Hertz and Budget own all the cars that they
+          rent? They lease a percentage of them each year in order to minimize
+          their capital outlays and maximize their inventories. The same thing
+          is true with companies that buy heavy equipment from Caterpillar and
+          then lease it to excavating contractors. These are big businesses. Why
+          am I telling you all this? You will see in a moment... <br></br>Have
+          you ever wanted to own rental real estate because of all the benefits
+          like appreciation, cash flow, tax deductions etc? But then you didn’t
+          buy the property because of the down payment or you couldn’t qualify
+          for the new loan? Or perhaps you decided against the purchase as you
+          did not want to deal with deadbeat tenants or stopped up toilets? What
+          if I could show you an opportunity that has all the benefits of owning
+          real estate but without any of the negatives? Let's call this
+          opportunity <>“Virtual Real Estate”</> for lack of a better term. Are
+          you ready to learn more about this ultimate financial strategy?
+        </section>
+        <h3 className="redirect">
+          <Link to="/about-product">click here for your free report.</Link>
+        </h3>
         <br></br>
       </div>
       <br></br>
+
       <Footer />
     </div>
   );
