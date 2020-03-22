@@ -22,7 +22,7 @@ const Nav = props => {
             <button>
               <Link to="/" className="logo">
                 {/* <img className='enduro-logo' src={logo}/> */}
-                CLOUD PAY CHECKS
+                ENDURO SOLUTIONS
               </Link>
             </button>
           </div>

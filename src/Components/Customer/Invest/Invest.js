@@ -69,7 +69,7 @@ class Invest extends React.Component {
       .then(res => {
         console.log(res);
         alert(
-          `transaction approved for ${amount}, please watch email for a docusign`
+          `Information has been received, please watch your email inbox to receive more info within 2 business days`
         );
       });
   };
@@ -133,11 +133,10 @@ class Invest extends React.Component {
               />
             </div>
             <div className="input-lines">
-              <h4> {"Desired Amount: "}</h4>
+              <h4> {"Questions/Comments: "}</h4>
               <input
-                className="input-boxes"
+                className="comment-box"
                 name="amount"
-                placeholder="i.e. $15000.00"
                 value={this.state.amount}
                 type="number"
                 onChange={e => this.handleChange(e)}
@@ -147,31 +146,22 @@ class Invest extends React.Component {
 
             <button onClick={this.submitButton} className="pay">
               submit
-              {/* <StripeCheckout
-                  name="test"
-                  stripeKey={process.env.REACT_APP_STRIPE_KEY}
-                  charge={this.onToken}
-                  amount={this.state.amount}
-                  currency="USD"
-                  opened={this.onOpened}
-                  closed={this.onClosed}
-                  allowRememberMe //default is true
-                  onClick={() => {
-                    this.onToken();
-                  }}
-                  // onClick={}
-                ></StripeCheckout> */}
             </button>
           </div>
         </div>
-        {/* <div id="contact-info">
-          <p className="text">
-            If more urgent contact is needed please email:
-            derekcbutler@gmail.com
-            <br></br>
-            Or call during normal business hours at (801)-400-4843
+        <section className='contact-us'>
+          <p className='paragraph'>
+            If in need of an expedited contact please send a short email to one of the following addresses and we will get back to you as soon as we can.
           </p>
-        </div> */}
+          <br></br>
+          <p className='emails'>
+            <a>onesheepdog@gmail.com</a>
+            <br></br>
+            <a>derekcbutler@gmail.com</a>
+            <br></br>
+            <a>mmeiling007@gmail.com</a>
+          </p>
+        </section>
       </div>
     );
   }
